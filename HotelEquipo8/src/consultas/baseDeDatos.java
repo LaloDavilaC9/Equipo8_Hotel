@@ -25,6 +25,26 @@ public class baseDeDatos {
     }
     //Consultas punto 3
     
+    public float[] consultarPorcentajesOcupacion(){
+        float porcentajes[]= new float [3],ocupadas,totales;
+        String querys[] = {"SELECT COUNT(Disponible) FROM habitaciones WHERE Disponible=0 AND Tipo_id=1\n" +"UNION\n" + "SELECT hab_sencillas FROM info_hotel",
+        "SELECT COUNT(Disponible) FROM habitaciones WHERE Disponible=0 AND Tipo_id=2\n" + "UNION\n" + "SELECT hab_dobles FROM info_hotel",
+        "SELECT COUNT(Disponible) FROM habitaciones WHERE Disponible=0 AND Tipo_id=3\n" + "UNION\n" + "SELECT hab_triples FROM info_hotel"};
+       
+        try {
+            for(short i=0;i<3;i++){
+                this.conn.Consult(querys[i]);
+                ocupadas = Float.parseFloat(conn.rs.getString("COUNT(Disponible)"));
+                conn.rs.next();
+                totales = Float.parseFloat(conn.rs.getString("COUNT(Disponible)"));
+                porcentajes[i] = ocupadas / totales * 100;
+            }
+            return porcentajes;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+        return porcentajes;
+    }
     
 
 }
