@@ -98,4 +98,21 @@ public class baseDeDatos {
         }
         return costos;
     }
+    
+    //Consultas punto 7
+    public String consultaDatoHuesped(String info[]){
+        String resultado="",query="SELECT huespedes.No_Habitacion, habitaciones.Piso FROM huespedes INNER JOIN habitaciones ON huespedes.No_Habitacion = habitaciones.Hab_id WHERE huespedes.nombre = '"+info[0]+"' AND huespedes.Ap_Paterno = '"+info[1]+"' AND huespedes.Ap_Materno ='"+info[2]+"'";
+        int j;
+        try{
+            this.conn.Consult(query);
+            resultado+=info[0]+" "+info[1]+" "+info[2]+" habitación "+this.conn.rs.getString("No_habitacion")+" Piso: "+this.conn.rs.getString("Piso");
+            return resultado;
+        }
+        catch(SQLException ex){
+            resultado = "Huésped no registrado";
+        }
+        return resultado;
+    
+    
+    }
 }

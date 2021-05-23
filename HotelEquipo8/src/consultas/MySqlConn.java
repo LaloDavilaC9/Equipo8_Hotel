@@ -27,7 +27,7 @@ public class MySqlConn {
 
             // conexion con la bd
             conn = DriverManager.getConnection(connectionUrl);
-            System.out.println("Conectado con �xito");
+            //System.out.println("Conectado con �xito");
         } catch (SQLException e) {
             System.out.println("SQL Exception: "+ e.toString());
         } catch (ClassNotFoundException cE) {

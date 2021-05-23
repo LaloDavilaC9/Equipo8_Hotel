@@ -7,9 +7,7 @@ public class HotelEquipo8 {
 
     public static void main(String[] args) {
         baseDeDatos b = new baseDeDatos();
-        float [] arreglo = b.consultarCostosHabitaciones();
-        System.out.println(arreglo[0]);
-        System.out.println(arreglo[1]);
-        System.out.println(arreglo[2]);
+        String info[]={"Brayan","Gaytán","Sánchez"};
+        System.out.println(b.consultaDatoHuesped(info));
     }
 }
