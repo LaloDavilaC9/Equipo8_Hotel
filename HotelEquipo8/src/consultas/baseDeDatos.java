@@ -2,6 +2,7 @@
 package consultas;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -129,4 +130,36 @@ public class baseDeDatos {
         }
         return resultado;
     }
+    //Consultas punto 9
+    public ArrayList consultaPorPiso(String piso){
+        String query="SELECT Hab_id,Tipo_id FROM habitaciones WHERE Disponible=1 AND Piso="+piso;
+        ArrayList <ArrayList<String>> disponibles = new ArrayList();
+        ArrayList<String> sencillas = new ArrayList(),dobles= new ArrayList(),triples= new ArrayList();
+        String resultado="";
+        try{
+            this.conn.Consult(query);
+            do{
+                resultado = this.conn.rs.getString("Hab_id");
+                switch(this.conn.rs.getString("Tipo_id")){
+                    case "1":
+                        sencillas.add(resultado);
+                        break;
+                    case "2":
+                        dobles.add(resultado);
+                        break;
+                    case "3":
+                       triples.add(resultado);
+                }
+            }while(this.conn.rs.next());
+            disponibles.add(sencillas);
+            disponibles.add(dobles);
+            disponibles.add(triples);
+            return disponibles;
+        }
+        catch(SQLException ex){
+            disponibles=null;
+        }
+        return disponibles;
+    }
+    
 }
