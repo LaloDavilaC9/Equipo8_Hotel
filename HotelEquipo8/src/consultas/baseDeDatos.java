@@ -112,7 +112,21 @@ public class baseDeDatos {
             resultado = "Huésped no registrado";
         }
         return resultado;
-    
-    
+    }
+    //Consultas punto 8
+    public String consultaQuienHabita(int nHabitacion){
+        String query = "SELECT nombre,Ap_paterno,Ap_materno FROM huespedes WHERE No_habitacion = "+nHabitacion+" ";
+        String resultado="";
+        try{
+            this.conn.Consult(query);
+            resultado+="La habitación "+nHabitacion+" está ocupada "
+                    + "por "+this.conn.rs.getString("nombre")+" "+this.conn.rs.getString("Ap_paterno")+" "
+                    + this.conn.rs.getString("Ap_materno");
+            return resultado;
+        }
+        catch(SQLException ex){
+            resultado = "Habitación no ocupada por nadie";
+        }
+        return resultado;
     }
 }
