@@ -3,6 +3,9 @@ package consultas;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -160,6 +163,28 @@ public class baseDeDatos {
             disponibles=null;
         }
         return disponibles;
+    }
+    //Consultas punto 10
+    
+    public HashMap <String,String>consultaListaAlfabetica(){
+        HashMap <String,String> lista = new HashMap();
+        String query = "SELECT nombre, Ap_Paterno,Ap_Materno, No_habitacion FROM huespedes WHERE activo = 1";
+        String nombre="";
+        try{
+            this.conn.Consult(query);
+            do{
+                nombre=this.conn.rs.getString("nombre");
+                nombre+=" "+this.conn.rs.getString("Ap_paterno");
+                nombre+=" "+this.conn.rs.getString("Ap_materno");
+                lista.put(nombre, this.conn.rs.getString("No_habitacion"));
+            }while(this.conn.rs.next());
+            
+            return lista;
+        }
+        catch(SQLException ex){
+            lista = null;
+        }
+        return lista;
     }
     
 }
