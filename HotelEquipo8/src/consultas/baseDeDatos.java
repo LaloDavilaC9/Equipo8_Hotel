@@ -46,5 +46,20 @@ public class baseDeDatos {
         return porcentajes;
     }
     
+    //Consultas punto 4
+    public int [] consultarNumeroHabitaciones(){
+        String query = "SELECT hab_sencillas,hab_dobles,hab_triples FROM info_hotel";
+        int habitaciones[] = new int [3];
+        try {
+            this.conn.Consult(query);
+            habitaciones[0] = Integer.parseInt(conn.rs.getString("hab_sencillas"));
+            habitaciones[1] = Integer.parseInt(conn.rs.getString("hab_dobles"));
+            habitaciones[2] = Integer.parseInt(conn.rs.getString("hab_triples"));
+            return habitaciones;
+        } catch (SQLException ex) {
+            Logger.getLogger(baseDeDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return habitaciones;
+    }
 
 }
