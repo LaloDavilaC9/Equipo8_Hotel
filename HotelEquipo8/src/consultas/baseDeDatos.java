@@ -61,5 +61,24 @@ public class baseDeDatos {
         }
         return habitaciones;
     }
+    
+    //Consultas punto 5
+    public float consultarPorcentajeTotalOcupacion(){
+        String query = "SELECT COUNT(Disponible) FROM habitaciones WHERE Disponible=0";
+        String query2= "SELECT hab_sencillas + hab_dobles + hab_triples AS suma FROM info_hotel";
+        float ocupadas,totales,porcentaje=0;
+        try{
+            this.conn.Consult(query);
+            ocupadas = Float.parseFloat(conn.rs.getString("COUNT(Disponible)"));
+            this.conn.Consult(query2);
+            totales = Float.parseFloat(conn.rs.getString("suma"));
+            porcentaje = ocupadas / totales * 100;
+            return porcentaje;
+        }
+        catch(SQLException ex){
+             Logger.getLogger(baseDeDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return porcentaje;
+    }
 
 }
