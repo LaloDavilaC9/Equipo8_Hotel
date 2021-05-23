@@ -80,5 +80,22 @@ public class baseDeDatos {
         }
         return porcentaje;
     }
-
+    
+    //Consultas punto 6
+    public float[] consultarCostosHabitaciones(){
+        String query = "SELECT Tipo_costo FROM tipos_hab";
+        float costos[] = new float[3];
+        try{
+            this.conn.Consult(query);
+            for(short i=0;i<3;i++){
+                costos[i] = Float.parseFloat(conn.rs.getString("Tipo_costo"));
+                conn.rs.next();
+            }
+            return costos;
+        }
+        catch(SQLException ex){
+             Logger.getLogger(baseDeDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return costos;
+    }
 }
