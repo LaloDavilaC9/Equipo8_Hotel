@@ -10,15 +10,13 @@ import java.util.Map;
 public class HotelEquipo8 {
 
     public static void main(String[] args) {
-        String datos[] = new String[7];
-        datos[0]= "Luis";
-        datos[1]= "Beltrán";
-        datos[2]= "Arroyo";
-        datos[3]="México";
-        datos[4]="2021-05-23";
-        datos[5]="2021-05-27";
-        datos[6]="103";
+        HashMap <String, String> lista = new HashMap();
         baseDeDatos b = new baseDeDatos();
-        b.registrarUsuario(datos);
+        lista = b.habDisponibles();
+        Iterator it = lista.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry e = (Map.Entry)it.next();
+            System.out.println(e.getKey() + " " + e.getValue());
+        }
     }
 }

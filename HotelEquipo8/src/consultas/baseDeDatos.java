@@ -196,6 +196,22 @@ public class baseDeDatos {
         this.conn.Update(query);
     }
     
+    public HashMap <String,String> habDisponibles(){
+        HashMap <String,String> lista = new HashMap();
+        String query="SELECT Tipo_id,Hab_id FROM habitaciones WHERE Disponible=1";
+        try{
+            this.conn.Consult(query);
+            do
+               lista.put(this.conn.rs.getString("Hab_id"), this.conn.rs.getString("Tipo_id"));
+            while(this.conn.rs.next());
+        }
+        catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "No hay habitaciones disponibles");
+            lista = null;
+        }
+        return lista;
+    }
+    
     
     
 }
