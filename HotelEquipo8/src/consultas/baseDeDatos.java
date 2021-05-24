@@ -221,6 +221,17 @@ public class baseDeDatos {
         this.conn.Update(query);
     }
     
+    public boolean habOcupada(String habitacion){
+        String query="SELECT disponible FROM habitaciones WHERE Hab_id = "+habitacion;
+        try{
+            this.conn.Consult(query);
+            //Habitación ocupada
+            return this.conn.rs.getString("disponible").equals("0");
+        }
+        catch(SQLException ex){
+            return false;
+        }
+    }
     
     
 }
