@@ -55,13 +55,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabelImagenPrincipal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(50, 50));
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setPreferredSize(new Dimension(ancho,alto));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 153));
-        jPanel1.setMaximumSize(new Dimension(ancho,alto));
-        jPanel1.setPreferredSize(new Dimension(alto,ancho));
+        jPanel1.setPreferredSize(new Dimension(ancho,alto));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextFieldNombreDeUsuario.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
@@ -100,9 +98,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabelImagenPrincipal.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabelImagenPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelImagenPrincipal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabelImagenPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1980, 1080));
+        jLabelImagenPrincipal.setPreferredSize(new Dimension(ancho,alto));
+        jPanel1.add(jLabelImagenPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1980, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
