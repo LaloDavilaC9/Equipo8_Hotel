@@ -194,6 +194,8 @@ public class baseDeDatos {
                 + "'"+datos[4]+"', '"+datos[5]+"', "
                 + "'"+datos[6]+"', '1');";
         this.conn.Update(query);
+        query="UPDATE `habitaciones` SET `Disponible` = '0', `ocupantes` = "+datos[7]+" WHERE `habitaciones`.`Hab_id` = "+datos[6];
+        this.conn.Update(query);
     }
     
     public HashMap <String,String> habDisponibles(){
@@ -210,6 +212,13 @@ public class baseDeDatos {
             lista = null;
         }
         return lista;
+    }
+    
+    public void bajaHuesped(String habitacion){
+        String query="DELETE FROM huespedes WHERE No_Habitacion = "+habitacion;
+        this.conn.Update(query);
+        query="UPDATE `habitaciones` SET `Disponible` = '1', `ocupantes` = 0 WHERE `habitaciones`.`Hab_id` = "+habitacion;
+        this.conn.Update(query);
     }
     
     
