@@ -27,11 +27,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         Dimension d = tk.getScreenSize();
         int ancho = (int)d.getWidth() / 2;
         int alto = (int)d.getHeight() / 2;
-        
+        System.out.println(""+ancho+" x "+alto);
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(this);
         this.pintarImagen(this.jLabelImagenPrincipal, "src/imagenes/FondoPantallaPrincipal.jpg");
-        this.jLabelImagenPrincipal.setSize(ancho, alto);
     }
 
     /**
