@@ -20,17 +20,23 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private ImageIcon imagen;
     private Icon icono;
-    
+    Toolkit tk;
+    Dimension d;
+    int ancho,alto;
     public PantallaPrincipal() {
+        tk = Toolkit.getDefaultToolkit();
+        d = tk.getScreenSize();
+        ancho = (int)d.getWidth() ;
+        alto = (int)d.getHeight() ;
         initComponents();
-        Toolkit tk = Toolkit.getDefaultToolkit();
-        Dimension d = tk.getScreenSize();
-        int ancho = (int)d.getWidth() / 2;
-        int alto = (int)d.getHeight() / 2;
+        
         System.out.println(""+ancho+" x "+alto);
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(this);
         this.pintarImagen(this.jLabelImagenPrincipal, "src/imagenes/FondoPantallaPrincipal.jpg");
+        this.setSize(50,90);
+        this.setVisible(false);
+        this.setVisible(true);
     }
 
     /**
@@ -53,6 +59,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
+        setPreferredSize(new Dimension(ancho,alto));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
