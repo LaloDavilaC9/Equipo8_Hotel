@@ -31,12 +31,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         initComponents();
         
         System.out.println(""+ancho+" x "+alto);
-        this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(this);
         this.pintarImagen(this.jLabelImagenPrincipal, "src/imagenes/FondoPantallaPrincipal.jpg");
-        this.setSize(50,90);
-        this.setVisible(false);
-        this.setVisible(true);
+       
     }
 
     /**
@@ -58,10 +55,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabelImagenPrincipal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setExtendedState(6);
+        setMaximumSize(new java.awt.Dimension(50, 50));
         setPreferredSize(new Dimension(ancho,alto));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel1.setMaximumSize(new Dimension(ancho,alto));
+        jPanel1.setPreferredSize(new Dimension(alto,ancho));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextFieldNombreDeUsuario.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
@@ -100,18 +100,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabelImagenPrincipal.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabelImagenPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelImagenPrincipal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabelImagenPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
+        jPanel1.add(jLabelImagenPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1980, 1080));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1980, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
