@@ -283,7 +283,36 @@ public class baseDeDatos {
         }
     }
     
+    public void actualizarIngresos(float total){
+        String query="SELECT ingresos_hotel FROM info_hotel";
+        float ingresos;
+        try{
+            this.conn.Consult(query);
+            ingresos=Float.parseFloat(this.conn.rs.getString("ingresos_hotel"));
+            ingresos+=total;
+            query="UPDATE info_hotel SET ingresos_hotel="+ingresos;
+            this.conn.Update(query);
+        }
+        catch(SQLException ex){
+            
+        }
+    }
     
+    public ArrayList<String> datosHotel(){
+        ArrayList<String> lista = new ArrayList();
+        String query="SELECT nombre_hotel,slogan_hotel,direccion_hotel FROM info_hotel";
+        try{
+            this.conn.Consult(query);
+            lista.add(this.conn.rs.getString("nombre_hotel"));
+            lista.add(this.conn.rs.getString("slogan_hotel"));
+            lista.add(this.conn.rs.getString("direccion_hotel"));
+        }
+        catch(SQLException ex){
+            lista=null;
+        }
+        return lista;
+        
+    }
     
     private long diferenciaFechas(String salida, String entrada){
          SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");

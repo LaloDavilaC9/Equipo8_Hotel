@@ -14,5 +14,8 @@ public class HotelEquipo8 {
         ArrayList <String> lista = new ArrayList();
         lista = b.datosCobro("102");
         System.out.println(lista);
+        b.actualizarIngresos(Float.parseFloat(lista.get(7)));
+        lista = b.datosHotel();
+        System.out.println(lista);
     }
 }
