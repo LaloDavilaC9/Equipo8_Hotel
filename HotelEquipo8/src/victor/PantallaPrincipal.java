@@ -21,6 +21,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
     public PantallaPrincipal() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(this);
         this.pintarImagen(this.jLabelImagenPrincipal, "src/imagenes/FondoPantallaPrincipal.jpg");
     }

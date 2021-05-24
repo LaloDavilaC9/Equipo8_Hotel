@@ -19,6 +19,7 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame {
      */
     public DisponibilidadHabitaciones() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**

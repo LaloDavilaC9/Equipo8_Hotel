@@ -25,6 +25,7 @@ public class GaleriaDeImagenes extends javax.swing.JFrame {
     
     public GaleriaDeImagenes() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(this);
         this.pintarImagen(this.jLabelFondoPantallaGaleria, "src/imagenes/FondoPantallaGaleriaDeFotos.jpg");
         this.pintarImagen(this.jLabelMostrarImagenes, "src/imagenes/imagenesGaleria/imagenGaleria1.jpg");
