@@ -11,6 +11,8 @@ public class HotelEquipo8 {
 
     public static void main(String[] args) {
         baseDeDatos b = new baseDeDatos();
-        b.bajaHuesped("100");
+        ArrayList <String> lista = new ArrayList();
+        lista = b.datosCobro("102");
+        System.out.println(lista);
     }
 }

@@ -2,10 +2,14 @@
 package consultas;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -233,5 +237,64 @@ public class baseDeDatos {
         }
     }
     
+    public ArrayList<String> datosCobro(String habitacion){
+        //Datos[0] = Nombre completo ...
+        ArrayList<String> datos = new ArrayList();
+        String tipo="",entrada="",salida="",costo="",dias="";
+        String query="SELECT * FROM huespedes WHERE No_Habitacion="+habitacion;
+        try{
+            this.conn.Consult(query);
+            datos.add(this.conn.rs.getString("nombre")+" "+this.conn.rs.getString("Ap_paterno")+" "+this.conn.rs.getString("Ap_materno"));
+            datos.add(this.conn.rs.getString("Ciudad"));
+            entrada=this.conn.rs.getString("Ingreso");
+            datos.add(entrada);
+            salida=this.conn.rs.getString("Salida");
+            datos.add(salida);
+            //Tipo de habitación
+            query= "SELECT Tipo_Id FROM habitaciones WHERE Hab_id="+habitacion;
+            this.conn.Consult(query);
+            tipo=this.conn.rs.getString("Tipo_Id");
+            datos.add(tipo);
+            //Costo
+            query= "SELECT Tipo_costo FROM tipos_hab WHERE Tipo_id = "+tipo;
+            this.conn.Consult(query);
+            costo=this.conn.rs.getString("Tipo_costo");
+            datos.add(costo);
+            //Días que se quedó
+            dias=""+diferenciaFechas(entrada,salida);
+            datos.add(dias);
+            //Total a pagar sin cargos extra
+            switch(tipo){
+                case "1":
+                    datos.add(""+(Float.parseFloat(costo)*Integer.parseInt(dias)));
+                    break;
+                case "2":
+                    datos.add(""+(Float.parseFloat(costo)*Integer.parseInt(dias)*2));
+                    break;
+                case "3":
+                    datos.add(""+(Float.parseFloat(costo)*Integer.parseInt(dias)*3));
+                    break;
+            }
+            return datos;
+        }
+        catch(SQLException ex){
+            System.out.println("");
+            return null;
+        }
+    }
+    
+    
+    
+    private long diferenciaFechas(String salida, String entrada){
+         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date ini = formato.parse(entrada);
+            Date fin = formato.parse(salida);
+            return TimeUnit.MILLISECONDS.toDays((ini.getTime() - fin.getTime()));
+        } catch (ParseException ex) {
+            System.out.println("Error en el formato");
+        }
+        return 0;
+    }
     
 }
