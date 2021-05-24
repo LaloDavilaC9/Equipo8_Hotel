@@ -5,7 +5,9 @@
  */
 package victor;
 
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -21,6 +23,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
     public PantallaPrincipal() {
         initComponents();
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        Dimension d = tk.getScreenSize();
+        int ancho = (int)d.getWidth() / 2;
+        int alto = (int)d.getHeight() / 2;
+        this.jLabelImagenPrincipal.setSize(ancho, alto);
+        
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(this);
         this.pintarImagen(this.jLabelImagenPrincipal, "src/imagenes/FondoPantallaPrincipal.jpg");
