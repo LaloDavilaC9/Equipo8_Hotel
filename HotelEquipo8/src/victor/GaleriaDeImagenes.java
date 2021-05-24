@@ -51,6 +51,7 @@ public class GaleriaDeImagenes extends javax.swing.JFrame {
         jLabelFondoPantallaGaleria = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(6);
         setMinimumSize(new java.awt.Dimension(1920, 1080));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 0));
