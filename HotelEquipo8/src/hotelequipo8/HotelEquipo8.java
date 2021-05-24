@@ -17,5 +17,6 @@ public class HotelEquipo8 {
         b.actualizarIngresos(Float.parseFloat(lista.get(7)));
         lista = b.datosHotel();
         System.out.println(lista);
+        System.out.println(""+b.consultarCostoExtra("1"));
     }
 }

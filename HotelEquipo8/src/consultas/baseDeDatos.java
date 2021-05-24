@@ -314,6 +314,18 @@ public class baseDeDatos {
         
     }
     
+    public float consultarCostoExtra(String tipoHabitacion){
+        String query = "SELECT Tipo_cargoExtra FROM Tipos_hab WHERE "
+                + "Tipo_id="+tipoHabitacion;
+        try{
+            this.conn.Consult(query);
+            return Float.parseFloat(this.conn.rs.getString("Tipo_cargoExtra"));
+        }
+        catch(SQLException ex){
+            return 1;
+        }
+    }
+    
     private long diferenciaFechas(String salida, String entrada){
          SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         try {
