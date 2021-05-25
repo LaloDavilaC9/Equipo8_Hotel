@@ -46,6 +46,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButtonHabitacionesDisponibles = new javax.swing.JButton();
         jTextFieldNombreDeUsuario = new javax.swing.JTextField();
         jPasswordFieldContraseniasuario = new javax.swing.JPasswordField();
         jButtonGaleriaImagenes = new javax.swing.JButton();
@@ -61,6 +62,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 153));
         jPanel1.setPreferredSize(new Dimension(ancho,alto));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButtonHabitacionesDisponibles.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonHabitacionesDisponibles.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        jButtonHabitacionesDisponibles.setForeground(new java.awt.Color(204, 204, 0));
+        jButtonHabitacionesDisponibles.setText("Habitaciones disponibles");
+        jButtonHabitacionesDisponibles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHabitacionesDisponiblesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonHabitacionesDisponibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 820, -1, -1));
 
         jTextFieldNombreDeUsuario.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jPanel1.add(jTextFieldNombreDeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 740, 520, -1));
@@ -105,11 +117,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
         );
 
         pack();
@@ -121,6 +133,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         galeria.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonGaleriaImagenesActionPerformed
+
+    private void jButtonHabitacionesDisponiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHabitacionesDisponiblesActionPerformed
+        // TODO add your handling code here:
+        DisponibilidadHabitaciones habDispo = new DisponibilidadHabitaciones();
+        habDispo.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonHabitacionesDisponiblesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,6 +191,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonGaleriaImagenes;
+    private javax.swing.JButton jButtonHabitacionesDisponibles;
     private javax.swing.JButton jButtonIniciarSesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

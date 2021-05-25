@@ -6,7 +6,13 @@
 package victor;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -14,12 +20,20 @@ import java.awt.Graphics;
  */
 public class DisponibilidadHabitaciones extends javax.swing.JFrame {
 
-    /**
-     * Creates new form DisponibilidadHabitaciones
-     */
+    private ImageIcon imagen;
+    private Icon icono;
+    Toolkit tk;
+    Dimension d;
+    int ancho,alto;
+    
     public DisponibilidadHabitaciones() {
+        tk = Toolkit.getDefaultToolkit();
+        d = tk.getScreenSize();
+        ancho = (int)d.getWidth() ;
+        alto = (int)d.getHeight() ;
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
+        this.setLocationRelativeTo(this);
+        this.pintarImagen(this.jLabelFondoDisponibilidad, "src/imagenes/FondoPantallaPrincipal.jpg");
     }
 
     /**
@@ -31,18 +45,29 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabelFondoDisponibilidad = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 7, 0));
         setExtendedState(6);
+        setPreferredSize(new java.awt.Dimension(720, 720));
+
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelFondoDisponibilidad.setPreferredSize(new Dimension(ancho,alto));
+        jPanel1.add(jLabelFondoDisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1920, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1080, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -84,54 +109,84 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame {
         });
     }
     
+    private void pintarImagen(JLabel lbl, String ruta){
+        this.imagen = new ImageIcon(ruta);
+        this.icono = new ImageIcon(
+                this.imagen.getImage().getScaledInstance(
+                    lbl.getWidth(), 
+                    lbl.getHeight(), 
+                    Image.SCALE_DEFAULT)
+        );
+        lbl.setIcon(this.icono);
+        this.repaint();
+    }
+    
     public void paint(Graphics g){
+        Toolkit tk;
+        Dimension d;
+        tk = Toolkit.getDefaultToolkit();
+        d = tk.getScreenSize();
+        ancho = (int) d.getWidth();
+        alto = (int) d.getHeight();
+        int altoOperacion = alto;
+        System.out.println("El alto de la pantalla es: "+altoOperacion);
+        double primerTercio = (altoOperacion/3)/2;
+        double segundoTercio = primerTercio*3;
+        double tercerTercio = primerTercio*5;
+        System.out.println("Primer tercio "+primerTercio);
+        System.out.println("Segundo tercio "+segundoTercio);
+        System.out.println("Tercero tercio "+tercerTercio);
+        
         super.paint(g);
-        g.setColor(Color.BLACK);
+        /*g.setColor(Color.BLACK);
         g.drawLine(75, 50, 1850, 50);
-        g.drawLine(75, 50, 200, 600000);
-        int moverDerechaPuerta = 100;
-        int moverDerechaCirculo = 135;
+        g.drawLine(75, 50, 200, 600000);*/
+        int moverIzquierdaPuerta = ancho - 125;
+        int moverIzquierdaCirculo = ancho - 125;
         //Para tercer piso.
         for (int i = 0; i < 15; i++) {
             g.setColor(Color.GREEN);
-            g.fillRect(moverDerechaPuerta, 70, 50, 70);
+            g.fillRect(moverIzquierdaPuerta, (int)primerTercio, ancho/35, alto/13);
             g.setColor(Color.BLACK);
-            g.fillOval(moverDerechaCirculo, 100, 15, 15);
-            moverDerechaPuerta += 120;
-            moverDerechaCirculo += 120;
+            g.fillOval(moverIzquierdaCirculo, (int)primerTercio+25, 15, 15);
+            moverIzquierdaPuerta -= 50; //Distancia entre cada puerta.
+            moverIzquierdaCirculo -= 50; //Distancia entre cada perilla.
             //ipjafdnhPoin
         }
+        
         //Para segundo piso.
-        g.setColor(Color.BLACK);
-        g.drawLine(75, 175, 1850, 175);
-        moverDerechaPuerta = 100;
-        moverDerechaCirculo = 135;
+        /*g.setColor(Color.BLACK);
+        g.drawLine(75, 175, 1850, 175);*/
+        moverIzquierdaPuerta = ancho -125;
+        moverIzquierdaCirculo = ancho - 125;
         for (int i = 0; i < 15; i++) {
             g.setColor(Color.RED);
-            g.fillRect(moverDerechaPuerta, 200, 50, 70);
+            g.fillRect(moverIzquierdaPuerta, (int)segundoTercio, ancho/35, alto/13);
             g.setColor(Color.BLACK);
-            g.fillOval(moverDerechaCirculo, 230, 15, 15);
-            moverDerechaPuerta += 120;
-            moverDerechaCirculo += 120;
+            g.fillOval(moverIzquierdaCirculo, (int)segundoTercio+25, 15, 15);
+            moverIzquierdaPuerta -= 120; //Distancia entre cada puerta.
+            moverIzquierdaCirculo -= 120; //Distancia entre cada perilla.
         }
         //Para primer piso.
-        g.setColor(Color.BLACK);
-        g.drawLine(75, 300, 1850, 300);
-        moverDerechaPuerta = 100;
-        moverDerechaCirculo = 135;
+        /*g.setColor(Color.BLACK);
+        g.drawLine(75, 300, 1850, 300);*/
+        moverIzquierdaPuerta = ancho - 125;
+        moverIzquierdaCirculo =ancho - 125;
         for (int i = 0; i < 15; i++) {
             g.setColor(Color.GREEN);
-            g.fillRect(moverDerechaPuerta, 330, 50, 70);
+            g.fillRect(moverIzquierdaPuerta, (int)tercerTercio, ancho/35, alto/13);
             g.setColor(Color.BLACK);
-            g.fillOval(moverDerechaCirculo, 360, 15, 15);
-            moverDerechaPuerta += 120;
-            moverDerechaCirculo += 120;
+            g.fillOval(moverIzquierdaCirculo, (int)tercerTercio+25, 15, 15);
+            moverIzquierdaPuerta -= 120; //Distancia entre cada puerta.
+            moverIzquierdaCirculo -= 120; //Distancia entre cada perilla.
         }
-        g.setColor(Color.BLACK);
-        g.drawLine(75, 425, 1850, 425);
+        /*g.setColor(Color.BLACK);
+        g.drawLine(75, 425, 1850, 425);*/
         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelFondoDisponibilidad;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
