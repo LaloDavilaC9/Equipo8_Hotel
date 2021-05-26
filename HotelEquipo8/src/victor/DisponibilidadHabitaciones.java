@@ -137,6 +137,8 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame {
         System.out.println("Segundo tercio "+segundoTercio);
         System.out.println("Tercero tercio "+tercerTercio);
         
+        //Falta automatizar el espacio entre puertas segun la resolucion de la pantalla.
+        
         super.paint(g);
         /*g.setColor(Color.BLACK);
         g.drawLine(75, 50, 1850, 50);
@@ -149,8 +151,8 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame {
             g.fillRect(moverIzquierdaPuerta, (int)primerTercio, ancho/35, alto/13);
             g.setColor(Color.BLACK);
             g.fillOval(moverIzquierdaCirculo, (int)primerTercio+25, 15, 15);
-            moverIzquierdaPuerta -= 50; //Distancia entre cada puerta.
-            moverIzquierdaCirculo -= 50; //Distancia entre cada perilla.
+            moverIzquierdaPuerta -= ancho/16; //Distancia entre cada puerta.
+            moverIzquierdaCirculo -= ancho/16; //Distancia entre cada perilla.
             //ipjafdnhPoin
         }
         
@@ -164,8 +166,8 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame {
             g.fillRect(moverIzquierdaPuerta, (int)segundoTercio, ancho/35, alto/13);
             g.setColor(Color.BLACK);
             g.fillOval(moverIzquierdaCirculo, (int)segundoTercio+25, 15, 15);
-            moverIzquierdaPuerta -= 120; //Distancia entre cada puerta.
-            moverIzquierdaCirculo -= 120; //Distancia entre cada perilla.
+            moverIzquierdaPuerta -= ancho/16; //Distancia entre cada puerta.
+            moverIzquierdaCirculo -= ancho/16; //Distancia entre cada perilla.
         }
         //Para primer piso.
         /*g.setColor(Color.BLACK);
@@ -177,8 +179,8 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame {
             g.fillRect(moverIzquierdaPuerta, (int)tercerTercio, ancho/35, alto/13);
             g.setColor(Color.BLACK);
             g.fillOval(moverIzquierdaCirculo, (int)tercerTercio+25, 15, 15);
-            moverIzquierdaPuerta -= 120; //Distancia entre cada puerta.
-            moverIzquierdaCirculo -= 120; //Distancia entre cada perilla.
+            moverIzquierdaPuerta -= ancho/16; //Distancia entre cada puerta.
+            moverIzquierdaCirculo -= ancho/16; //Distancia entre cada perilla.
         }
         /*g.setColor(Color.BLACK);
         g.drawLine(75, 425, 1850, 425);*/
