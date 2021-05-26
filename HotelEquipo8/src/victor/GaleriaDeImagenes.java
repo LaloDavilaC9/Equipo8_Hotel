@@ -5,7 +5,9 @@
  */
 package victor;
 
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -21,10 +23,19 @@ public class GaleriaDeImagenes extends javax.swing.JFrame {
     
     private ImageIcon imagenGaleria;
     private Icon iconoGaleria;
-    
+    Toolkit tk;
+    Dimension d;
+    int ancho,alto;
     
     public GaleriaDeImagenes() {
+        tk = Toolkit.getDefaultToolkit();
+        d = tk.getScreenSize();
+        ancho = (int)d.getWidth() ;
+        alto = (int)d.getHeight() ;
         initComponents();
+        this.jButtonAnteriorImagen.setVisible(true);
+        this.jButtonRegresarLogin.setVisible(true);
+        this.jButtonSiguienteImagen.setVisible(true);
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(this);
         this.pintarImagen(this.jLabelFondoPantallaGaleria, "src/imagenes/FondoPantallaGaleriaDeFotos.jpg");
@@ -44,19 +55,32 @@ public class GaleriaDeImagenes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jButtonRegresarLogin = new javax.swing.JButton();
         jButtonSiguienteImagen = new javax.swing.JButton();
         jButtonAnteriorImagen = new javax.swing.JButton();
-        jButtonRegresarLogin = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jLabelMostrarImagenes = new javax.swing.JLabel();
         jLabelFondoPantallaGaleria = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
-        setMinimumSize(new java.awt.Dimension(1920, 1080));
+        setPreferredSize(new Dimension(ancho,alto));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 0));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setPreferredSize(new Dimension(ancho,alto));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        jButtonRegresarLogin.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonRegresarLogin.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        jButtonRegresarLogin.setForeground(new java.awt.Color(204, 204, 0));
+        jButtonRegresarLogin.setText("Salir");
+        jButtonRegresarLogin.setMinimumSize(new java.awt.Dimension(121212, 121212));
+        jButtonRegresarLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegresarLoginActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonRegresarLogin);
 
         jButtonSiguienteImagen.setBackground(new java.awt.Color(0, 0, 0));
         jButtonSiguienteImagen.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
@@ -67,7 +91,7 @@ public class GaleriaDeImagenes extends javax.swing.JFrame {
                 jButtonSiguienteImagenActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonSiguienteImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(1680, 880, -1, -1));
+        jPanel2.add(jButtonSiguienteImagen);
 
         jButtonAnteriorImagen.setBackground(new java.awt.Color(0, 0, 0));
         jButtonAnteriorImagen.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
@@ -78,33 +102,42 @@ public class GaleriaDeImagenes extends javax.swing.JFrame {
                 jButtonAnteriorImagenActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonAnteriorImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(1470, 880, 160, -1));
+        jPanel2.add(jButtonAnteriorImagen);
 
-        jButtonRegresarLogin.setBackground(new java.awt.Color(0, 0, 0));
-        jButtonRegresarLogin.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jButtonRegresarLogin.setForeground(new java.awt.Color(204, 204, 0));
-        jButtonRegresarLogin.setText("Salir");
-        jButtonRegresarLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegresarLoginActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButtonRegresarLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 880, 160, -1));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 0));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1, 1));
+        jPanel1.setPreferredSize(new Dimension(ancho,alto));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelMostrarImagenes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelMostrarImagenes.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 6, true));
-        jPanel1.add(jLabelMostrarImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 1620, 800));
-        jPanel1.add(jLabelFondoPantallaGaleria, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
+        jLabelMostrarImagenes.setMaximumSize(new java.awt.Dimension(121212, 121212));
+        jLabelMostrarImagenes.setPreferredSize(new Dimension(ancho-(ancho/3),alto-(alto/3)));
+        jPanel1.add(jLabelMostrarImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabelFondoPantallaGaleria.setMaximumSize(new java.awt.Dimension(121212, 121212));
+        jLabelFondoPantallaGaleria.setPreferredSize(new Dimension(ancho,alto));
+        jPanel1.add(jLabelFondoPantallaGaleria, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -191,5 +224,6 @@ public class GaleriaDeImagenes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFondoPantallaGaleria;
     private javax.swing.JLabel jLabelMostrarImagenes;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
