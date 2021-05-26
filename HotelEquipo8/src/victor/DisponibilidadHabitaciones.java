@@ -143,8 +143,8 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame {
         /*g.setColor(Color.BLACK);
         g.drawLine(75, 50, 1850, 50);
         g.drawLine(75, 50, 200, 600000);*/
-        int moverIzquierdaPuerta = ancho - 125;
-        int moverIzquierdaCirculo = ancho - 125;
+        int moverIzquierdaPuerta = ancho - 80;
+        int moverIzquierdaCirculo = ancho - 80;
         //Para tercer piso.
         for (int i = 0; i < 15; i++) {
             g.setColor(Color.GREEN);
@@ -159,8 +159,8 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame {
         //Para segundo piso.
         /*g.setColor(Color.BLACK);
         g.drawLine(75, 175, 1850, 175);*/
-        moverIzquierdaPuerta = ancho -125;
-        moverIzquierdaCirculo = ancho - 125;
+        moverIzquierdaPuerta = ancho -80;
+        moverIzquierdaCirculo = ancho - 80;
         for (int i = 0; i < 15; i++) {
             g.setColor(Color.RED);
             g.fillRect(moverIzquierdaPuerta, (int)segundoTercio, ancho/35, alto/13);
@@ -172,8 +172,8 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame {
         //Para primer piso.
         /*g.setColor(Color.BLACK);
         g.drawLine(75, 300, 1850, 300);*/
-        moverIzquierdaPuerta = ancho - 125;
-        moverIzquierdaCirculo =ancho - 125;
+        moverIzquierdaPuerta = ancho - 80;
+        moverIzquierdaCirculo =ancho - 80;
         for (int i = 0; i < 15; i++) {
             g.setColor(Color.GREEN);
             g.fillRect(moverIzquierdaPuerta, (int)tercerTercio, ancho/35, alto/13);
