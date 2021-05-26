@@ -5,11 +5,14 @@
  */
 package victor;
 
+import consultas.baseDeDatos;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.HashMap;
+import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -18,7 +21,7 @@ import javax.swing.JLabel;
  *
  * @author victo
  */
-public class DisponibilidadHabitaciones extends javax.swing.JFrame {
+public class DisponibilidadHabitaciones extends javax.swing.JFrame{
 
     private ImageIcon imagen;
     private Icon icono;
@@ -151,6 +154,35 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame {
     }
     
     public void paint(Graphics g){
+        try {
+            baseDeDatos bdd = new baseDeDatos();
+            HashMap<String, String> disponible = new HashMap();
+            disponible = bdd.habDisponibles(); //truena
+
+            int habdisp[];
+            habdisp = new int[45];
+            int j = 0;
+
+            Iterator it = disponible.keySet().iterator();
+            while (it.hasNext()) {
+                // Get Clave
+                String habitacionID2 = (String) it.next();
+                String dispo2 = (String) disponible.get(habitacionID2);
+                // Imprimo.
+                int habitacionID, dispo;
+                habitacionID = Integer.parseInt(habitacionID2);
+                dispo = Integer.parseInt(dispo2);
+                habdisp[j] = dispo;
+                j++;
+            }
+            System.out.println(habdisp);
+        } catch (Exception e) {
+            System.out.println("Trono");
+        }
+
+ 
+        
+        
         Toolkit tk;
         Dimension d;
         tk = Toolkit.getDefaultToolkit();
