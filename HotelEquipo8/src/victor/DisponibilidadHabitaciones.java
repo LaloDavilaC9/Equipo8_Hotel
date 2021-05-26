@@ -33,7 +33,7 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame {
         alto = (int)d.getHeight() ;
         initComponents();
         this.setLocationRelativeTo(this);
-        this.pintarImagen(this.jLabelFondoDisponibilidad, "src/imagenes/FondoPantallaPrincipal.jpg");
+        this.pintarImagen(this.jLabelFondoDisponibilidad, "src/imagenes/FondoPantallaDisponibilidadHabitaciones.jpg");
     }
 
     /**
@@ -145,18 +145,31 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame {
         g.drawLine(75, 50, 200, 600000);*/
         int moverIzquierdaPuerta = ancho - 80;
         int moverIzquierdaCirculo = ancho - 80;
+        
         //Para tercer piso.
+        //SELECT * FROM habitaciones WHERE Piso = 3
+        
         for (int i = 0; i < 15; i++) {
-            g.setColor(Color.GREEN);
-            g.fillRect(moverIzquierdaPuerta, (int)primerTercio, ancho/35, alto/13);
-            g.setColor(Color.BLACK);
-            g.fillOval(moverIzquierdaCirculo, (int)primerTercio+25, 15, 15);
-            moverIzquierdaPuerta -= ancho/16; //Distancia entre cada puerta.
-            moverIzquierdaCirculo -= ancho/16; //Distancia entre cada perilla.
-            //ipjafdnhPoin
+            //if (disponible == 1) {
+                g.setColor(Color.GREEN);
+                g.fillRect(moverIzquierdaPuerta, (int)primerTercio, ancho/35, alto/13);
+                g.setColor(Color.BLACK);
+                g.fillOval(moverIzquierdaCirculo, (int)primerTercio+25, 15, 15);
+                moverIzquierdaPuerta -= ancho/16; //Distancia entre cada puerta.
+                moverIzquierdaCirculo -= ancho/16; //Distancia entre cada perilla.
+                //ipjafdnhPoin
+            //}else{
+//                g.setColor(Color.RED);
+//                g.fillRect(moverIzquierdaPuerta, (int)primerTercio, ancho/35, alto/13);
+//                g.setColor(Color.BLACK);
+//                g.fillOval(moverIzquierdaCirculo, (int)primerTercio+25, 15, 15);
+//                moverIzquierdaPuerta -= ancho/16; //Distancia entre cada puerta.
+//                moverIzquierdaCirculo -= ancho/16; //Distancia entre cada perilla.
+            //}
         }
         
         //Para segundo piso.
+        //SELECT * FROM habitaciones WHERE Piso = 2
         /*g.setColor(Color.BLACK);
         g.drawLine(75, 175, 1850, 175);*/
         moverIzquierdaPuerta = ancho -80;
@@ -169,7 +182,9 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame {
             moverIzquierdaPuerta -= ancho/16; //Distancia entre cada puerta.
             moverIzquierdaCirculo -= ancho/16; //Distancia entre cada perilla.
         }
+        
         //Para primer piso.
+        //SELECT * FROM habitaciones WHERE Piso = 1
         /*g.setColor(Color.BLACK);
         g.drawLine(75, 300, 1850, 300);*/
         moverIzquierdaPuerta = ancho - 80;
