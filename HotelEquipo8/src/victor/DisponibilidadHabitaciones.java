@@ -154,35 +154,42 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame{
     }
     
     public void paint(Graphics g){
-        try {
-            baseDeDatos bdd = new baseDeDatos();
-            HashMap<String, String> disponible = new HashMap();
-            disponible = bdd.habDisponibles(); //truena
-
-            int habdisp[];
-            habdisp = new int[45];
-            int j = 0;
-
-            Iterator it = disponible.keySet().iterator();
-            while (it.hasNext()) {
-                // Get Clave
-                String habitacionID2 = (String) it.next();
-                String dispo2 = (String) disponible.get(habitacionID2);
-                // Imprimo.
-                int habitacionID, dispo;
-                habitacionID = Integer.parseInt(habitacionID2);
-                dispo = Integer.parseInt(dispo2);
-                habdisp[j] = dispo;
-                j++;
-            }
-            System.out.println(habdisp);
-        } catch (Exception e) {
-            System.out.println("Trono");
+        
+        /*HashMap <String,String> lista = new HashMap();
+        String query="SELECT Tipo_id,Hab_id FROM habitaciones WHERE Disponible=1";
+        try{
+            this.conn.Consult(query);
+            do{
+               lista.put(this.conn.rs.getString("Hab_id"), this.conn.rs.getString("Tipo_id"));
+            }while(this.conn.rs.next());
+        }catch(Exception ex){
+            System.out.println("Tronó UnU");
+            lista = null;
         }
 
- 
-        
-        
+        Iterator it = lista.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry e = (Map.Entry)it.next();
+            System.out.println(e.getKey() + " " + e.getValue());
+        }*/
+
+        baseDeDatos b = new baseDeDatos();
+        boolean ocupada[] = new boolean [45];
+
+        for (int i = 1; i <= 45; i++) {
+            String h = Integer.toString(i);
+            try{
+                ocupada[i] = b.habOcupada(h);
+                if (ocupada[i]){
+                    System.out.println(i +") - Disponible");
+                }else{
+                    System.out.println(i +") - Ocupada");
+                }
+            }catch(Exception e){
+                System.out.println(i +") Error UnU");
+            }
+        }
+
         Toolkit tk;
         Dimension d;
         tk = Toolkit.getDefaultToolkit();
