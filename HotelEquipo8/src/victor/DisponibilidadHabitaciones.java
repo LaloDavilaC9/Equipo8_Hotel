@@ -295,7 +295,6 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame{
             }
             n++;
         }
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
