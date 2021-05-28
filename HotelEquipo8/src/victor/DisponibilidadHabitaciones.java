@@ -157,35 +157,59 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame{
     }
     
     public void paint(Graphics g){
-        
-        HashMap <String,String> lista = new HashMap();
-        baseDeDatos b = new baseDeDatos();
-        lista = b.habDisponibles();
-        String query="SELECT Tipo_id,Hab_id FROM habitaciones WHERE Disponible=1";
 
-        Iterator it = lista.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry e = (Map.Entry)it.next();
-            System.out.println(e.getKey() + " " + e.getValue());
-        }
-
-        /*baseDeDatos b = new baseDeDatos();
+               baseDeDatos b = new baseDeDatos();
         boolean ocupada[] = new boolean [45];
-
-        for (int i = 1; i <= 45; i++) {
+        int n = 0;
+        int aux = 101;
+        for (int i = aux; i <= 115; i++) {
             String h = Integer.toString(i);
             try{
-                ocupada[i] = b.habOcupada(h);
-                if (ocupada[i]){
-                    System.out.println(i +") - Disponible");
-                }else{
+                ocupada[n] = b.habOcupada(h);
+                if (ocupada[n]){
                     System.out.println(i +") - Ocupada");
+                    
+                }else{
+                    System.out.println(i +") - Disponible");
                 }
             }catch(Exception e){
                 System.out.println(i +") Error UnU");
             }
-        }*/
+            n++;
+        }
+        aux = 201;
+        for (int i = aux; i <= 215; i++) {
+            String h = Integer.toString(i);
+            try {
+                ocupada[n] = b.habOcupada(h);
+                if (ocupada[n]) {
+                    System.out.println(i + ") - Ocupada");
 
+                } else {
+                    System.out.println(i + ") - Disponible");
+                }
+            } catch (Exception e) {
+                System.out.println(i + ") Error UnU");
+            }
+            n++;
+        }
+        aux = 301;
+        for (int i = aux; i <= 315; i++) {
+            String h = Integer.toString(i);
+            try {
+                ocupada[n] = b.habOcupada(h);
+                if (ocupada[n]) {
+                    System.out.println(i + ") - Ocupada");
+
+                } else {
+                    System.out.println(i + ") - Disponible");
+                }
+            } catch (Exception e) {
+                System.out.println(i + ") Error UnU");
+            }
+            n++;
+        }
+        
         Toolkit tk;
         Dimension d;
         tk = Toolkit.getDefaultToolkit();
@@ -194,76 +218,84 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame{
         alto = (int) d.getHeight();
         int altoOperacion = alto;
         System.out.println("El alto de la pantalla es: "+altoOperacion);
-        double primerTercio = (altoOperacion/3)/2;
-        double segundoTercio = primerTercio*3;
-        double tercerTercio = primerTercio*5;
-        System.out.println("Primer tercio "+primerTercio);
-        System.out.println("Segundo tercio "+segundoTercio);
-        System.out.println("Tercero tercio "+tercerTercio);
-        
-        //Falta automatizar el espacio entre puertas segun la resolucion de la pantalla.
-        
+        double primerTercio = (altoOperacion / 3) / 2;
+        double segundoTercio = primerTercio * 3;
+        double tercerTercio = primerTercio * 5;
+        System.out.println("Primer tercio " + primerTercio);
+        System.out.println("Segundo tercio " + segundoTercio);
+        System.out.println("Tercero tercio " + tercerTercio);
+
         super.paint(g);
-        /*g.setColor(Color.BLACK);
-        g.drawLine(75, 50, 1850, 50);
-        g.drawLine(75, 50, 200, 600000);*/
+
         int moverIzquierdaPuerta = ancho - 80;
         int moverIzquierdaCirculo = ancho - 80;
-        
+        n = 30;
         //Para tercer piso.
-        //SELECT * FROM habitaciones WHERE Piso = 3
-        
         for (int i = 0; i < 15; i++) {
-            //if (disponible == 1) {
-                g.setColor(Color.GREEN);
-                g.fillRect(moverIzquierdaPuerta, (int)primerTercio, ancho/35, alto/13);
+            if (ocupada[n]) {
+                g.setColor(Color.RED);
+                g.fillRect(moverIzquierdaPuerta, (int) primerTercio, ancho / 35, alto / 13);
                 g.setColor(Color.BLACK);
-                g.fillOval(moverIzquierdaCirculo, (int)primerTercio+25, 15, 15);
-                moverIzquierdaPuerta -= ancho/16; //Distancia entre cada puerta.
-                moverIzquierdaCirculo -= ancho/16; //Distancia entre cada perilla.
-                //ipjafdnhPoin
-            //}else{
-//                g.setColor(Color.RED);
-//                g.fillRect(moverIzquierdaPuerta, (int)primerTercio, ancho/35, alto/13);
-//                g.setColor(Color.BLACK);
-//                g.fillOval(moverIzquierdaCirculo, (int)primerTercio+25, 15, 15);
-//                moverIzquierdaPuerta -= ancho/16; //Distancia entre cada puerta.
-//                moverIzquierdaCirculo -= ancho/16; //Distancia entre cada perilla.
-            //}
+                g.fillOval(moverIzquierdaCirculo, (int) primerTercio + 25, 15, 15);
+                moverIzquierdaPuerta -= ancho / 16; //Distancia entre cada puerta.
+                moverIzquierdaCirculo -= ancho / 16; //Distancia entre cada perilla.
+            } else {
+                g.setColor(Color.GREEN);
+                g.fillRect(moverIzquierdaPuerta, (int) primerTercio, ancho / 35, alto / 13);
+                g.setColor(Color.BLACK);
+                g.fillOval(moverIzquierdaCirculo, (int) primerTercio + 25, 15, 15);
+                moverIzquierdaPuerta -= ancho / 16; //Distancia entre cada puerta.
+                moverIzquierdaCirculo -= ancho / 16; //Distancia entre cada perilla.
+            }
+            n++;
         }
-        
+
         //Para segundo piso.
-        //SELECT * FROM habitaciones WHERE Piso = 2
-        /*g.setColor(Color.BLACK);
-        g.drawLine(75, 175, 1850, 175);*/
-        moverIzquierdaPuerta = ancho -80;
+        n = 15;
+        moverIzquierdaPuerta = ancho - 80;
         moverIzquierdaCirculo = ancho - 80;
         for (int i = 0; i < 15; i++) {
-            g.setColor(Color.RED);
-            g.fillRect(moverIzquierdaPuerta, (int)segundoTercio, ancho/35, alto/13);
-            g.setColor(Color.BLACK);
-            g.fillOval(moverIzquierdaCirculo, (int)segundoTercio+25, 15, 15);
-            moverIzquierdaPuerta -= ancho/16; //Distancia entre cada puerta.
-            moverIzquierdaCirculo -= ancho/16; //Distancia entre cada perilla.
+            if (ocupada[n]) {
+                g.setColor(Color.RED);
+                g.fillRect(moverIzquierdaPuerta, (int) segundoTercio, ancho / 35, alto / 13);
+                g.setColor(Color.BLACK);
+                g.fillOval(moverIzquierdaCirculo, (int) segundoTercio + 25, 15, 15);
+                moverIzquierdaPuerta -= ancho / 16; //Distancia entre cada puerta.
+                moverIzquierdaCirculo -= ancho / 16; //Distancia entre cada perilla.
+            } else {
+                g.setColor(Color.GREEN);
+                g.fillRect(moverIzquierdaPuerta, (int) segundoTercio, ancho / 35, alto / 13);
+                g.setColor(Color.BLACK);
+                g.fillOval(moverIzquierdaCirculo, (int) segundoTercio + 25, 15, 15);
+                moverIzquierdaPuerta -= ancho / 16; //Distancia entre cada puerta.
+                moverIzquierdaCirculo -= ancho / 16; //Distancia entre cada perilla.
+            }
+            n++;
         }
-        
+
         //Para primer piso.
-        //SELECT * FROM habitaciones WHERE Piso = 1
-        /*g.setColor(Color.BLACK);
-        g.drawLine(75, 300, 1850, 300);*/
+        n = 0;
         moverIzquierdaPuerta = ancho - 80;
-        moverIzquierdaCirculo =ancho - 80;
+        moverIzquierdaCirculo = ancho - 80;
         for (int i = 0; i < 15; i++) {
-            g.setColor(Color.GREEN);
-            g.fillRect(moverIzquierdaPuerta, (int)tercerTercio, ancho/35, alto/13);
-            g.setColor(Color.BLACK);
-            g.fillOval(moverIzquierdaCirculo, (int)tercerTercio+25, 15, 15);
-            moverIzquierdaPuerta -= ancho/16; //Distancia entre cada puerta.
-            moverIzquierdaCirculo -= ancho/16; //Distancia entre cada perilla.
+            if (ocupada[n]) {
+                g.setColor(Color.RED);
+                g.fillRect(moverIzquierdaPuerta, (int) tercerTercio, ancho / 35, alto / 13);
+                g.setColor(Color.BLACK);
+                g.fillOval(moverIzquierdaCirculo, (int) tercerTercio + 25, 15, 15);
+                moverIzquierdaPuerta -= ancho / 16; //Distancia entre cada puerta.
+                moverIzquierdaCirculo -= ancho / 16; //Distancia entre cada perilla.
+            } else {
+                g.setColor(Color.GREEN);
+                g.fillRect(moverIzquierdaPuerta, (int) tercerTercio, ancho / 35, alto / 13);
+                g.setColor(Color.BLACK);
+                g.fillOval(moverIzquierdaCirculo, (int) tercerTercio + 25, 15, 15);
+                moverIzquierdaPuerta -= ancho / 16; //Distancia entre cada puerta.
+                moverIzquierdaCirculo -= ancho / 16; //Distancia entre cada perilla.
+            }
+            n++;
         }
-        /*g.setColor(Color.BLACK);
-        g.drawLine(75, 425, 1850, 425);*/
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
