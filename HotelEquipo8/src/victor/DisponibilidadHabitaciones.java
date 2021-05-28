@@ -5,6 +5,7 @@
  */
 package victor;
 
+import consultas.MySqlConn;
 import consultas.baseDeDatos;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,6 +14,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -28,6 +30,7 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame{
     Toolkit tk;
     Dimension d;
     int ancho,alto;
+    MySqlConn conn;
     
     public DisponibilidadHabitaciones() {
         tk = Toolkit.getDefaultToolkit();
@@ -155,25 +158,18 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame{
     
     public void paint(Graphics g){
         
-        /*HashMap <String,String> lista = new HashMap();
+        HashMap <String,String> lista = new HashMap();
+        baseDeDatos b = new baseDeDatos();
+        lista = b.habDisponibles();
         String query="SELECT Tipo_id,Hab_id FROM habitaciones WHERE Disponible=1";
-        try{
-            this.conn.Consult(query);
-            do{
-               lista.put(this.conn.rs.getString("Hab_id"), this.conn.rs.getString("Tipo_id"));
-            }while(this.conn.rs.next());
-        }catch(Exception ex){
-            System.out.println("Tronó UnU");
-            lista = null;
-        }
 
         Iterator it = lista.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry e = (Map.Entry)it.next();
             System.out.println(e.getKey() + " " + e.getValue());
-        }*/
+        }
 
-        baseDeDatos b = new baseDeDatos();
+        /*baseDeDatos b = new baseDeDatos();
         boolean ocupada[] = new boolean [45];
 
         for (int i = 1; i <= 45; i++) {
@@ -188,7 +184,7 @@ public class DisponibilidadHabitaciones extends javax.swing.JFrame{
             }catch(Exception e){
                 System.out.println(i +") Error UnU");
             }
-        }
+        }*/
 
         Toolkit tk;
         Dimension d;
