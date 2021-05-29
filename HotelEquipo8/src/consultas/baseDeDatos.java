@@ -194,7 +194,7 @@ public class baseDeDatos {
     public void registrarHuesped(String datos[]){
         //datos[4] = "YYYY-mm-DD"
         //datos[5] = "YYYY-mm-DD" ya sumada
-        String query="INSERT INTO `huespedes` (`huesped_id`, `nombre`, `Ap_Paterno`, `Ap_Materno`, `Ciudad`, `Ingreso`, `Salida`, `No_Habitacion`, `Activo`) VALUES (NULL, '"+datos[0]+"', '"+datos[1]+"', '"+datos[2]+"', '"+datos[3]+"', "
+        String query="INSERT INTO `huespedes` (`nombre`, `Ap_Paterno`, `Ap_Materno`, `Ciudad`, `Ingreso`, `Salida`, `No_Habitacion`, `Activo`) VALUES ('"+datos[1]+"', '"+datos[2]+"', '"+datos[3]+"', "
                 + "'"+datos[4]+"', '"+datos[5]+"', "
                 + "'"+datos[6]+"', '1');";
         this.conn.Update(query);
