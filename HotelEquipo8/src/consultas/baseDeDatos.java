@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.apache.commons.codec.digest.DigestUtils;
 
 public class baseDeDatos {
     MySqlConn conn;
@@ -324,6 +325,28 @@ public class baseDeDatos {
         catch(SQLException ex){
             return 1;
         }
+    }
+
+    public boolean consultarInicioSesion(String usuario, String contrasena) {
+        String cuenta, contraseña, query;
+
+        query = "select * from cuentas where usuario = " + "'" + usuario + "'";
+        this.conn.Consult(query);
+        try {
+            String contraseñaMySql = this.conn.rs.getString(2);
+            /*char[] passw = this.jPasswordFieldLogin.getPassword();
+             contraseña = new String (passw);*/
+
+            String contraseñaencriptada = DigestUtils.md5Hex(contrasena);
+            if (contraseñaMySql.equals(contraseñaencriptada)) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error dentro de la consulta");
+        }
+        return false;
     }
     
     private long diferenciaFechas(String salida, String entrada){

@@ -5,12 +5,17 @@
  */
 package victor;
 
+import consultas.MySqlConn;
+import consultas.baseDeDatos;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.SQLException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -23,6 +28,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     Toolkit tk;
     Dimension d;
     int ancho,alto;
+    MySqlConn conn;
     public PantallaPrincipal() {
         tk = Toolkit.getDefaultToolkit();
         d = tk.getScreenSize();
@@ -95,6 +101,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jButtonIniciarSesion.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jButtonIniciarSesion.setForeground(new java.awt.Color(204, 204, 0));
         jButtonIniciarSesion.setText("Iniciar sesión");
+        jButtonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIniciarSesionActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 890, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
@@ -140,6 +151,23 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         habDispo.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonHabitacionesDisponiblesActionPerformed
+
+    private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
+        // TODO add your handling code here:
+        /*Login iniciarsesion = new Login();
+        iniciarsesion.setVisible(true);*/
+                baseDeDatos b = new baseDeDatos();
+        String usuario = this.jTextFieldNombreDeUsuario.getText().trim();
+        char[] passw = this.jPasswordFieldContraseniasuario.getPassword();
+        String contrasena = new String (passw);
+        boolean aux;
+        aux = b.consultarInicioSesion(usuario, contrasena);
+        if (aux) {
+            JOptionPane.showMessageDialog(this, "Usuario ecnontrado");
+        }else{
+            JOptionPane.showMessageDialog(this, "Usuario NO ecnontrado");
+        }
+    }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
