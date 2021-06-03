@@ -47,12 +47,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabelFondoMenu = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jMenuCheckIn = new javax.swing.JMenu();
+        jMenuCheckOut = new javax.swing.JMenu();
+        jMenuConsultas = new javax.swing.JMenu();
+        jMenuConsultarPersonasHospedadas = new javax.swing.JMenu();
+        jMenuConsultaExtra = new javax.swing.JMenu();
+        jMenuConsultarGaleria = new javax.swing.JMenu();
+        jMenuConsultarHabDispXPiso = new javax.swing.JMenu();
+        jMenuConsultaBuscar = new javax.swing.JMenu();
+        jMenuConsultarPorHuesped = new javax.swing.JMenu();
+        jMenuConsultaPorHabitacion = new javax.swing.JMenu();
+        jMenuConsultarCostosHab = new javax.swing.JMenu();
+        jMenuConsultarTotalHab = new javax.swing.JMenu();
+        jMenuConsultarIngresos = new javax.swing.JMenu();
+        jMenuConsultarPorcentajes = new javax.swing.JMenu();
+        jMenuConsultarPorcentajeOcupacionTipHab = new javax.swing.JMenu();
+        jMenuConsultarPorcentajeOcupacionHotel = new javax.swing.JMenu();
+        jMenuEditar = new javax.swing.JMenu();
+        jMenuHabDisp = new javax.swing.JMenu();
+        jMenuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
@@ -68,57 +81,167 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jMenu1.setBackground(new java.awt.Color(0, 0, 0));
-        jMenu1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 0)));
-        jMenu1.setForeground(new java.awt.Color(204, 204, 0));
-        jMenu1.setText("Check in   ");
-        jMenu1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jMenuBar1.add(jMenu1);
+        jMenuCheckIn.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuCheckIn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 0)));
+        jMenuCheckIn.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuCheckIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/CheckIn.png"))); // NOI18N
+        jMenuCheckIn.setText("Check in   ");
+        jMenuCheckIn.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jMenuBar1.add(jMenuCheckIn);
 
-        jMenu2.setBackground(new java.awt.Color(0, 0, 0));
-        jMenu2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
-        jMenu2.setForeground(new java.awt.Color(204, 204, 0));
-        jMenu2.setText("Check out   ");
-        jMenu2.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jMenuBar1.add(jMenu2);
+        jMenuCheckOut.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuCheckOut.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuCheckOut.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuCheckOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/CheckOut.png"))); // NOI18N
+        jMenuCheckOut.setText("Check out   ");
+        jMenuCheckOut.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jMenuBar1.add(jMenuCheckOut);
 
-        jMenu4.setBackground(new java.awt.Color(0, 0, 0));
-        jMenu4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
-        jMenu4.setForeground(new java.awt.Color(204, 204, 0));
-        jMenu4.setText("Consultas   ");
-        jMenu4.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jMenuBar1.add(jMenu4);
+        jMenuConsultas.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuConsultas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuConsultas.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Consultas.png"))); // NOI18N
+        jMenuConsultas.setText("Consultas   ");
+        jMenuConsultas.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
 
-        jMenu5.setBackground(new java.awt.Color(0, 0, 0));
-        jMenu5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
-        jMenu5.setForeground(new java.awt.Color(204, 204, 0));
-        jMenu5.setText("Editar   ");
-        jMenu5.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jMenuBar1.add(jMenu5);
+        jMenuConsultarPersonasHospedadas.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuConsultarPersonasHospedadas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuConsultarPersonasHospedadas.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuConsultarPersonasHospedadas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/PersonasHospedadas.png"))); // NOI18N
+        jMenuConsultarPersonasHospedadas.setText("Personas hospedadas");
+        jMenuConsultarPersonasHospedadas.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultas.add(jMenuConsultarPersonasHospedadas);
 
-        jMenu6.setBackground(new java.awt.Color(0, 0, 0));
-        jMenu6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
-        jMenu6.setForeground(new java.awt.Color(204, 204, 0));
-        jMenu6.setText("Habitaciones disp.   ");
-        jMenu6.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenuConsultaExtra.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuConsultaExtra.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuConsultaExtra.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuConsultaExtra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/ConsultaExtra.png"))); // NOI18N
+        jMenuConsultaExtra.setText("Consulta extra");
+        jMenuConsultaExtra.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultas.add(jMenuConsultaExtra);
+
+        jMenuConsultarGaleria.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuConsultarGaleria.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuConsultarGaleria.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuConsultarGaleria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Galeria.png"))); // NOI18N
+        jMenuConsultarGaleria.setText("Galeria de fotos");
+        jMenuConsultarGaleria.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultas.add(jMenuConsultarGaleria);
+
+        jMenuConsultarHabDispXPiso.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuConsultarHabDispXPiso.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuConsultarHabDispXPiso.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuConsultarHabDispXPiso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/HabDispo.png"))); // NOI18N
+        jMenuConsultarHabDispXPiso.setText("Hab. Disponibles por piso");
+        jMenuConsultarHabDispXPiso.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultas.add(jMenuConsultarHabDispXPiso);
+
+        jMenuConsultaBuscar.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuConsultaBuscar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuConsultaBuscar.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuConsultaBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Buscar.png"))); // NOI18N
+        jMenuConsultaBuscar.setText("Buscar");
+        jMenuConsultaBuscar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+
+        jMenuConsultarPorHuesped.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuConsultarPorHuesped.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuConsultarPorHuesped.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuConsultarPorHuesped.setText("Por nombre");
+        jMenuConsultarPorHuesped.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultaBuscar.add(jMenuConsultarPorHuesped);
+
+        jMenuConsultaPorHabitacion.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuConsultaPorHabitacion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuConsultaPorHabitacion.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuConsultaPorHabitacion.setText("por No. Habitacion");
+        jMenuConsultaPorHabitacion.setFocusable(false);
+        jMenuConsultaPorHabitacion.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultaBuscar.add(jMenuConsultaPorHabitacion);
+
+        jMenuConsultas.add(jMenuConsultaBuscar);
+
+        jMenuConsultarCostosHab.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuConsultarCostosHab.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuConsultarCostosHab.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuConsultarCostosHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Costos.png"))); // NOI18N
+        jMenuConsultarCostosHab.setText("Costos de hab");
+        jMenuConsultarCostosHab.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultas.add(jMenuConsultarCostosHab);
+
+        jMenuConsultarTotalHab.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuConsultarTotalHab.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuConsultarTotalHab.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuConsultarTotalHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Habitaciones.png"))); // NOI18N
+        jMenuConsultarTotalHab.setText("Total de hab.");
+        jMenuConsultarTotalHab.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultas.add(jMenuConsultarTotalHab);
+
+        jMenuConsultarIngresos.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuConsultarIngresos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuConsultarIngresos.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuConsultarIngresos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Ingresos.png"))); // NOI18N
+        jMenuConsultarIngresos.setText("Ingresos del hotel");
+        jMenuConsultarIngresos.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultas.add(jMenuConsultarIngresos);
+
+        jMenuConsultarPorcentajes.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuConsultarPorcentajes.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuConsultarPorcentajes.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuConsultarPorcentajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Graficos.png"))); // NOI18N
+        jMenuConsultarPorcentajes.setText("Porcentajes");
+        jMenuConsultarPorcentajes.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+
+        jMenuConsultarPorcentajeOcupacionTipHab.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuConsultarPorcentajeOcupacionTipHab.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuConsultarPorcentajeOcupacionTipHab.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuConsultarPorcentajeOcupacionTipHab.setText("Por tipo de hab.");
+        jMenuConsultarPorcentajeOcupacionTipHab.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultarPorcentajes.add(jMenuConsultarPorcentajeOcupacionTipHab);
+
+        jMenuConsultarPorcentajeOcupacionHotel.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuConsultarPorcentajeOcupacionHotel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuConsultarPorcentajeOcupacionHotel.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuConsultarPorcentajeOcupacionHotel.setText("Ocupacion del hotel");
+        jMenuConsultarPorcentajeOcupacionHotel.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultarPorcentajes.add(jMenuConsultarPorcentajeOcupacionHotel);
+
+        jMenuConsultas.add(jMenuConsultarPorcentajes);
+
+        jMenuBar1.add(jMenuConsultas);
+
+        jMenuEditar.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuEditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuEditar.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Editar.png"))); // NOI18N
+        jMenuEditar.setText("Editar   ");
+        jMenuEditar.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jMenuBar1.add(jMenuEditar);
+
+        jMenuHabDisp.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuHabDisp.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuHabDisp.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuHabDisp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/HabDispo2.png"))); // NOI18N
+        jMenuHabDisp.setText("Habitaciones disp.   ");
+        jMenuHabDisp.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jMenuHabDisp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu6MouseClicked(evt);
+                jMenuHabDispMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu6);
+        jMenuBar1.add(jMenuHabDisp);
 
-        jMenu3.setBackground(new java.awt.Color(0, 0, 0));
-        jMenu3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
-        jMenu3.setForeground(new java.awt.Color(204, 204, 0));
-        jMenu3.setText("Salir   ");
-        jMenu3.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenuSalir.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuSalir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuSalir.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Salir.png"))); // NOI18N
+        jMenuSalir.setText("Salir   ");
+        jMenuSalir.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jMenuSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+                jMenuSalirMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(jMenuSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -130,25 +253,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 2787, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+    private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked
         // TODO add your handling code here:
         PantallaPrincipal pantallaPrinci = new PantallaPrincipal();
         pantallaPrinci.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jMenu3MouseClicked
+    }//GEN-LAST:event_jMenuSalirMouseClicked
 
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+    private void jMenuHabDispMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuHabDispMouseClicked
         // TODO add your handling code here:
         DisponibilidadHabitacionesDesdeMenu habDisp = new DisponibilidadHabitacionesDesdeMenu();
         habDisp.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jMenu6MouseClicked
+    }//GEN-LAST:event_jMenuHabDispMouseClicked
 
     /**
      * @param args the command line arguments
@@ -199,13 +322,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelFondoMenu;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuCheckIn;
+    private javax.swing.JMenu jMenuCheckOut;
+    private javax.swing.JMenu jMenuConsultaBuscar;
+    private javax.swing.JMenu jMenuConsultaExtra;
+    private javax.swing.JMenu jMenuConsultaPorHabitacion;
+    private javax.swing.JMenu jMenuConsultarCostosHab;
+    private javax.swing.JMenu jMenuConsultarGaleria;
+    private javax.swing.JMenu jMenuConsultarHabDispXPiso;
+    private javax.swing.JMenu jMenuConsultarIngresos;
+    private javax.swing.JMenu jMenuConsultarPersonasHospedadas;
+    private javax.swing.JMenu jMenuConsultarPorHuesped;
+    private javax.swing.JMenu jMenuConsultarPorcentajeOcupacionHotel;
+    private javax.swing.JMenu jMenuConsultarPorcentajeOcupacionTipHab;
+    private javax.swing.JMenu jMenuConsultarPorcentajes;
+    private javax.swing.JMenu jMenuConsultarTotalHab;
+    private javax.swing.JMenu jMenuConsultas;
+    private javax.swing.JMenu jMenuEditar;
+    private javax.swing.JMenu jMenuHabDisp;
+    private javax.swing.JMenu jMenuSalir;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

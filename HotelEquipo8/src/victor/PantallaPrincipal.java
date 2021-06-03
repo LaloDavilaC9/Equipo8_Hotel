@@ -167,7 +167,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             menu.setVisible(true);
             dispose();
         }else{
-            JOptionPane.showMessageDialog(this, "Usuario NO ecnontrado");
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta");
         }
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
