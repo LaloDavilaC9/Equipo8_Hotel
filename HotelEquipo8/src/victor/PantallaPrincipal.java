@@ -163,7 +163,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         boolean aux;
         aux = b.consultarInicioSesion(usuario, contrasena);
         if (aux) {
-            JOptionPane.showMessageDialog(this, "Usuario ecnontrado");
+            MenuPrincipal menu = new MenuPrincipal();
+            menu.setVisible(true);
+            dispose();
         }else{
             JOptionPane.showMessageDialog(this, "Usuario NO ecnontrado");
         }
