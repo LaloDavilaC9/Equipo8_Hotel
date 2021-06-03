@@ -12,22 +12,24 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import java.applet.AudioClip;
 
 /**
  *
  * @author victo
  */
-public class GaleriaDeImagenes extends javax.swing.JFrame {
+public class GaleriaDeImagenesDesdePantallaPrincipal extends javax.swing.JFrame {
 
     int contador =1;
-    
+    int auxiliarMusica = 1;
     private ImageIcon imagenGaleria;
     private Icon iconoGaleria;
     Toolkit tk;
     Dimension d;
     int ancho,alto;
-    
-    public GaleriaDeImagenes() {
+    AudioClip cancion;
+    public GaleriaDeImagenesDesdePantallaPrincipal() {
+        cancion = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/Kirameki.wav"));
         tk = Toolkit.getDefaultToolkit();
         d = tk.getScreenSize();
         ancho = (int)d.getWidth() ;
@@ -40,10 +42,8 @@ public class GaleriaDeImagenes extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.pintarImagen(this.jLabelFondoPantallaGaleria, "src/imagenes/FondoPantallaGaleriaDeFotos.jpg");
         this.pintarImagen(this.jLabelMostrarImagenes, "src/imagenes/imagenesGaleria/imagenGaleria1.jpg");
-        /*for (int i = 1; i <= 12; i++) {
-            this.pintarImagen(this.jLabelMostrarImagenes, "src/imagenes/imagenesGaleria/imagenGaleria"+i+".jpg");
-        }*/
-        
+        cancion.play();
+        cancion.loop();
     }
 
     /**
@@ -62,10 +62,12 @@ public class GaleriaDeImagenes extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabelMostrarImagenes = new javax.swing.JLabel();
         jLabelFondoPantallaGaleria = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuPlay = new javax.swing.JMenu();
+        jMenuStop = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
-        setPreferredSize(new Dimension(ancho,alto));
 
         jPanel2.setPreferredSize(new Dimension(ancho,alto));
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
@@ -119,6 +121,36 @@ public class GaleriaDeImagenes extends javax.swing.JFrame {
         jLabelFondoPantallaGaleria.setPreferredSize(new Dimension(ancho,alto));
         jPanel1.add(jLabelFondoPantallaGaleria, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
+
+        jMenuPlay.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuPlay.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuPlay.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Play.png"))); // NOI18N
+        jMenuPlay.setText("Play   ");
+        jMenuPlay.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        jMenuPlay.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuPlayMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenuPlay);
+
+        jMenuStop.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuStop.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
+        jMenuStop.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Stop.png"))); // NOI18N
+        jMenuStop.setText("Stop   ");
+        jMenuStop.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        jMenuStop.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuStopMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenuStop);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,7 +164,7 @@ public class GaleriaDeImagenes extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -163,11 +195,29 @@ public class GaleriaDeImagenes extends javax.swing.JFrame {
 
     private void jButtonRegresarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarLoginActionPerformed
         // TODO add your handling code here:
+        cancion.stop();
         System.out.println("Entre al boton");
         PantallaPrincipal pantallaPrinci = new PantallaPrincipal();
         pantallaPrinci.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonRegresarLoginActionPerformed
+
+    private void jMenuPlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuPlayMouseClicked
+        // TODO add your handling code here:
+        if (auxiliarMusica != 1){
+            cancion.play();
+            auxiliarMusica = 1;
+        }else{
+            cancion.stop();
+            cancion.play();
+        }
+    }//GEN-LAST:event_jMenuPlayMouseClicked
+
+    private void jMenuStopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuStopMouseClicked
+        // TODO add your handling code here:
+        auxiliarMusica = 0;
+        cancion.stop();
+    }//GEN-LAST:event_jMenuStopMouseClicked
 
     /**
      * @param args the command line arguments
@@ -186,21 +236,27 @@ public class GaleriaDeImagenes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GaleriaDeImagenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GaleriaDeImagenesDesdePantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GaleriaDeImagenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GaleriaDeImagenesDesdePantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GaleriaDeImagenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GaleriaDeImagenesDesdePantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GaleriaDeImagenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GaleriaDeImagenesDesdePantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GaleriaDeImagenes().setVisible(true);
+                new GaleriaDeImagenesDesdePantallaPrincipal().setVisible(true);
             }
         });
     }
@@ -223,6 +279,9 @@ public class GaleriaDeImagenes extends javax.swing.JFrame {
     private javax.swing.JButton jButtonSiguienteImagen;
     private javax.swing.JLabel jLabelFondoPantallaGaleria;
     private javax.swing.JLabel jLabelMostrarImagenes;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuPlay;
+    private javax.swing.JMenu jMenuStop;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

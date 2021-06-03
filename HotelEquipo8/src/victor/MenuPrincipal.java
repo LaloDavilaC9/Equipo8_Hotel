@@ -126,6 +126,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuConsultarGaleria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Galeria.png"))); // NOI18N
         jMenuConsultarGaleria.setText("Galeria de fotos");
         jMenuConsultarGaleria.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultarGaleria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuConsultarGaleriaMouseClicked(evt);
+            }
+        });
         jMenuConsultas.add(jMenuConsultarGaleria);
 
         jMenuConsultarHabDispXPiso.setBackground(new java.awt.Color(0, 0, 0));
@@ -272,6 +277,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         habDisp.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuHabDispMouseClicked
+
+    private void jMenuConsultarGaleriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConsultarGaleriaMouseClicked
+        // TODO add your handling code here:
+        GaleriaDeImagenesDesdeMenu galery = new GaleriaDeImagenesDesdeMenu();
+        galery.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_jMenuConsultarGaleriaMouseClicked
 
     /**
      * @param args the command line arguments
