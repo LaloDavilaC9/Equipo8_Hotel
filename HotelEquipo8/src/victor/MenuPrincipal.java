@@ -5,6 +5,7 @@
  */
 package victor;
 
+import consultas.baseDeDatos;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
@@ -12,7 +13,14 @@ import java.awt.Label;
 import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 /**
@@ -201,6 +209,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuConsultarPorcentajeOcupacionTipHab.setForeground(new java.awt.Color(204, 204, 0));
         jMenuConsultarPorcentajeOcupacionTipHab.setText("Por tipo de hab.");
         jMenuConsultarPorcentajeOcupacionTipHab.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultarPorcentajeOcupacionTipHab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuConsultarPorcentajeOcupacionTipHabMouseClicked(evt);
+            }
+        });
         jMenuConsultarPorcentajes.add(jMenuConsultarPorcentajeOcupacionTipHab);
 
         jMenuConsultarPorcentajeOcupacionHotel.setBackground(new java.awt.Color(0, 0, 0));
@@ -285,6 +298,119 @@ public class MenuPrincipal extends javax.swing.JFrame {
         dispose();
         
     }//GEN-LAST:event_jMenuConsultarGaleriaMouseClicked
+
+    private void jMenuConsultarPorcentajeOcupacionTipHabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConsultarPorcentajeOcupacionTipHabMouseClicked
+        // TODO add your handling code here:
+        baseDeDatos b = new baseDeDatos();
+        boolean ocupadaSencillas[] = new boolean [14];
+        boolean ocupadaDobles[] = new boolean [16];
+        boolean ocupadaTriples[] = new boolean [15];
+        //Sencillas
+        int n = 0;
+        int i = 101;
+        do{
+            String h = Integer.toString(i);
+            try{
+                ocupadaSencillas[n] = b.habOcupada(h);
+            }catch(Exception e){
+                System.out.println(i +") Error UnU");
+            }
+            i++;
+            n++;
+            if (i == 106) {
+                i = 201;
+            }else{
+                if (i == 204) {
+                    i = 301;
+                }
+            }
+            if (i == 307) {
+                break;
+            }
+        }while(n != 14);
+        //Dobles
+        n = 0;
+        i = 106;
+        do{
+            String h = Integer.toString(i);
+            try{
+                ocupadaDobles[n] = b.habOcupada(h);
+            }catch(Exception e){
+                System.out.println(i +") Error UnU");
+            }
+            i++;
+            n++;
+            if (i == 112) {
+                i = 204;
+            }else{
+                if (i == 211) {
+                    i = 307;
+                }
+            }
+            if (i == 310) {
+                break;
+            }
+        }while(n != 16);
+        //Triples
+        n = 0;
+        i = 112;
+        do{
+            String h = Integer.toString(i);
+            try{
+                ocupadaTriples[n] = b.habOcupada(h);
+            }catch(Exception e){
+                System.out.println(i +") Error UnU");
+            }
+            i++;
+            n++;
+            if (i == 116) {
+                i = 211;
+            }else{
+                if (i == 216) {
+                    i = 310;
+                }
+            }
+            if (i == 316) {
+                break;
+            }
+        }while(n != 15);
+        int sencillasOcupadas = 0;
+        int doblesOcupadas = 0;
+        int triplesOcupadas = 0;
+        for (int j = 0; j < ocupadaSencillas.length; j++) {
+            if (ocupadaSencillas[j] == true) {
+                sencillasOcupadas++;
+            }
+        }
+        for (int j = 0; j < ocupadaDobles.length; j++) {
+            if (ocupadaDobles[j] == true) {
+                doblesOcupadas++;
+            }
+        }
+        for (int j = 0; j < ocupadaTriples.length; j++) {
+            if (ocupadaTriples[j] == true) {
+                triplesOcupadas++;
+            }
+        }
+        System.out.println("Entre al pastel");
+        int produccion[] = new int[3];
+        produccion[0] = sencillasOcupadas;
+        produccion[1] = doblesOcupadas;
+        produccion[2] = triplesOcupadas;
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("Osaka (Sencilla)", new Integer(produccion[0]));
+        dataset.setValue("Tokio (Doble)", new Integer(produccion[1]));
+        dataset.setValue("Kyoto (Triple)", new Integer(produccion[2]));
+        
+        JFreeChart chart = ChartFactory.createPieChart("GRAFICA DE PASTEL: Habitaciones ocupadas \n California Suite",dataset,true,true, false);
+        ChartPanel panel= new ChartPanel(chart);
+        
+        JFrame ventana = new JFrame("Grafica de habitaciones ocupadas");
+        ventana.setVisible(true);
+        ventana.setSize(800, 600);
+        ventana.add(panel);
+        ventana.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuConsultarPorcentajeOcupacionTipHabMouseClicked
 
     /**
      * @param args the command line arguments
