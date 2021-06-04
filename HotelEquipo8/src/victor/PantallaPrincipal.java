@@ -140,7 +140,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jButtonGaleriaImagenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGaleriaImagenesActionPerformed
         // TODO add your handling code here:
-        GaleriaDeImagenesDesdePantallaPrincipal galeria = new GaleriaDeImagenesDesdePantallaPrincipal();
+        GaleriaDeImagenesDesdePantallaPrinci galeria = new GaleriaDeImagenesDesdePantallaPrinci();
         galeria.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonGaleriaImagenesActionPerformed
