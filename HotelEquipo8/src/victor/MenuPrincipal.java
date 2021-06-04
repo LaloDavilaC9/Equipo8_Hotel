@@ -221,6 +221,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuConsultarPorcentajeOcupacionHotel.setForeground(new java.awt.Color(204, 204, 0));
         jMenuConsultarPorcentajeOcupacionHotel.setText("Ocupacion del hotel");
         jMenuConsultarPorcentajeOcupacionHotel.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultarPorcentajeOcupacionHotel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuConsultarPorcentajeOcupacionHotelMouseClicked(evt);
+            }
+        });
         jMenuConsultarPorcentajes.add(jMenuConsultarPorcentajeOcupacionHotel);
 
         jMenuConsultas.add(jMenuConsultarPorcentajes);
@@ -402,15 +407,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         dataset.setValue("Tokio (Doble)", new Integer(produccion[1]));
         dataset.setValue("Kyoto (Triple)", new Integer(produccion[2]));
         
-        JFreeChart chart = ChartFactory.createPieChart("GRAFICA DE PASTEL: Habitaciones ocupadas \n California Suite",dataset,true,true, false);
+        JFreeChart chart = ChartFactory.createPieChart("HABITACIONES OCUPADAS \n California Suite",dataset,true,true, false);
         ChartPanel panel= new ChartPanel(chart);
         
         JFrame ventana = new JFrame("Grafica de habitaciones ocupadas");
         ventana.setVisible(true);
         ventana.setSize(800, 600);
+        ventana.setLocationRelativeTo(null);
         ventana.add(panel);
         ventana.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuConsultarPorcentajeOcupacionTipHabMouseClicked
+
+    private void jMenuConsultarPorcentajeOcupacionHotelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConsultarPorcentajeOcupacionHotelMouseClicked
+        // TODO add your handling code here:
+        Ocupacion graficaTotal = new Ocupacion();
+    }//GEN-LAST:event_jMenuConsultarPorcentajeOcupacionHotelMouseClicked
 
     /**
      * @param args the command line arguments

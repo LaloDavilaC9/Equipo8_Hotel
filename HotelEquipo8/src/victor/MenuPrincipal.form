@@ -389,6 +389,9 @@
                       <Font name="Segoe UI" size="18" style="3"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuConsultarPorcentajeOcupacionHotelMouseClicked"/>
+                  </Events>
                 </Menu>
               </SubComponents>
             </Menu>
