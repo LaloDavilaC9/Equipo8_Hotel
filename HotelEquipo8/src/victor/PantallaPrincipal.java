@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.digest.DigestUtils;
+import victor.miniForms.AlertaErrorLogin;
 
 /**
  *
@@ -154,9 +155,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
         // TODO add your handling code here:
-        /*Login iniciarsesion = new Login();
-        iniciarsesion.setVisible(true);*/
-                baseDeDatos b = new baseDeDatos();
+        baseDeDatos b = new baseDeDatos();
         String usuario = this.jTextFieldNombreDeUsuario.getText().trim();
         char[] passw = this.jPasswordFieldContraseniasuario.getPassword();
         String contrasena = new String (passw);
@@ -166,8 +165,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             MenuPrincipal menu = new MenuPrincipal();
             menu.setVisible(true);
             dispose();
-        }else{
-            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta");
+        } else {
+            AlertaErrorLogin alerta = new AlertaErrorLogin();
+            alerta.setVisible(true);
+            alerta.setLocationRelativeTo(null);
+            alerta.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         }
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
