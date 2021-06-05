@@ -23,6 +23,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import victor.miniForms.IngresosDelHotel;
+import victor.miniForms.TotalDeHabitaciones;
 
 /**
  *
@@ -55,7 +56,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabelFondoMenu = new javax.swing.JLabel();
-        jDesktopPaneEscritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCheckIn = new javax.swing.JMenu();
         jMenuCheckOut = new javax.swing.JMenu();
@@ -88,21 +88,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabelFondoMenu.setMaximumSize(new java.awt.Dimension(121212, 121212));
         jLabelFondoMenu.setPreferredSize(jPanel1.getPreferredSize());
         jPanel1.add(jLabelFondoMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jDesktopPaneEscritorio.setPreferredSize(new Dimension(ancho,alto));
-
-        javax.swing.GroupLayout jDesktopPaneEscritorioLayout = new javax.swing.GroupLayout(jDesktopPaneEscritorio);
-        jDesktopPaneEscritorio.setLayout(jDesktopPaneEscritorioLayout);
-        jDesktopPaneEscritorioLayout.setHorizontalGroup(
-            jDesktopPaneEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1010, Short.MAX_VALUE)
-        );
-        jDesktopPaneEscritorioLayout.setVerticalGroup(
-            jDesktopPaneEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jDesktopPaneEscritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 440));
 
         jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -204,6 +189,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuConsultarTotalHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Habitaciones.png"))); // NOI18N
         jMenuConsultarTotalHab.setText("Total de hab.");
         jMenuConsultarTotalHab.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultarTotalHab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuConsultarTotalHabMouseClicked(evt);
+            }
+        });
         jMenuConsultas.add(jMenuConsultarTotalHab);
 
         jMenuConsultarIngresos.setBackground(new java.awt.Color(0, 0, 0));
@@ -294,7 +284,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -453,6 +443,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ingresos.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuConsultarIngresosMouseClicked
 
+    private void jMenuConsultarTotalHabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConsultarTotalHabMouseClicked
+        // TODO add your handling code here:
+        TotalDeHabitaciones totHab = new TotalDeHabitaciones();
+        totHab.setVisible(true);
+        totHab.setLocationRelativeTo(null);
+        totHab.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuConsultarTotalHabMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -501,7 +499,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPaneEscritorio;
     private javax.swing.JLabel jLabelFondoMenu;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCheckIn;
