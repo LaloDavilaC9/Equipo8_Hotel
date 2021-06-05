@@ -6,17 +6,18 @@
 package victor.miniForms;
 
 import consultas.baseDeDatos;
+import java.util.ArrayList;
 
 /**
  *
  * @author victo
  */
-public class ConsultarPorHabitacion extends javax.swing.JFrame {
+public class ConsultarPorPiso extends javax.swing.JFrame {
 
     /**
-     * Creates new form ConsultarPorNombre
+     * Creates new form ConsultarPorPiso
      */
-    public ConsultarPorHabitacion() {
+    public ConsultarPorPiso() {
         initComponents();
     }
 
@@ -31,48 +32,21 @@ public class ConsultarPorHabitacion extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextFieldNumeroDeHabitacion = new javax.swing.JTextField();
+        jButtonLimpiar = new javax.swing.JButton();
+        jButtonBuscar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaInformacion = new javax.swing.JTextArea();
-        jButtonBuscar = new javax.swing.JButton();
-        jButtonLimpiar = new javax.swing.JButton();
+        jComboBoxPiso = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 0), 3));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("            Busqueda por habitacion");
-
-        jTextFieldNumeroDeHabitacion.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("No. de habitacion:");
-
-        jTextAreaInformacion.setEditable(false);
-        jTextAreaInformacion.setBackground(new java.awt.Color(0, 0, 0));
-        jTextAreaInformacion.setColumns(20);
-        jTextAreaInformacion.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jTextAreaInformacion.setForeground(new java.awt.Color(204, 204, 0));
-        jTextAreaInformacion.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaInformacion);
-
-        jButtonBuscar.setBackground(new java.awt.Color(0, 0, 0));
-        jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jButtonBuscar.setForeground(new java.awt.Color(204, 204, 0));
-        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Buscar.png"))); // NOI18N
-        jButtonBuscar.setText("Buscar");
-        jButtonBuscar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 2, true));
-        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscarActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("    Busqueda de disponibilidad por piso");
 
         jButtonLimpiar.setBackground(new java.awt.Color(0, 0, 0));
         jButtonLimpiar.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
@@ -86,6 +60,40 @@ public class ConsultarPorHabitacion extends javax.swing.JFrame {
             }
         });
 
+        jButtonBuscar.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jButtonBuscar.setForeground(new java.awt.Color(204, 204, 0));
+        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Buscar.png"))); // NOI18N
+        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 2, true));
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("No. de piso:");
+
+        jTextAreaInformacion.setEditable(false);
+        jTextAreaInformacion.setBackground(new java.awt.Color(0, 0, 0));
+        jTextAreaInformacion.setColumns(20);
+        jTextAreaInformacion.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jTextAreaInformacion.setForeground(new java.awt.Color(204, 204, 0));
+        jTextAreaInformacion.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaInformacion);
+
+        jComboBoxPiso.setBackground(new java.awt.Color(0, 0, 0));
+        jComboBoxPiso.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jComboBoxPiso.setForeground(new java.awt.Color(204, 204, 0));
+        jComboBoxPiso.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3" }));
+        jComboBoxPiso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBoxPisoMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -93,12 +101,12 @@ public class ConsultarPorHabitacion extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldNumeroDeHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxPiso, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -113,10 +121,10 @@ public class ConsultarPorHabitacion extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldNumeroDeHabitacion)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonLimpiar)
-                    .addComponent(jButtonBuscar))
+                    .addComponent(jButtonBuscar)
+                    .addComponent(jComboBoxPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -126,7 +134,7 @@ public class ConsultarPorHabitacion extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,19 +146,43 @@ public class ConsultarPorHabitacion extends javax.swing.JFrame {
 
     private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
         // TODO add your handling code here:
-        this.jTextFieldNumeroDeHabitacion.setText("");
         this.jTextAreaInformacion.setText("");
     }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
+        this.jTextAreaInformacion.setText("");
         baseDeDatos b = new baseDeDatos();
-        int habitacion;
-        String resultado;
-        habitacion = Integer.parseInt(this.jTextFieldNumeroDeHabitacion.getText().trim());
-        resultado = b.consultaQuienHabita(habitacion);
-        this.jTextAreaInformacion.setText(resultado);
+        ArrayList <ArrayList<String>> habitaciones = new ArrayList();
+        String piso = (String) this.jComboBoxPiso.getSelectedItem();
+        habitaciones = b.consultaPorPiso(piso);
+
+        for (int i = 0; i < habitaciones.size(); i++) {
+            if (i == 0) {
+                this.jTextAreaInformacion.append("Osaka (Sencillas) disponibles: ");
+            } else {
+                if (i == 1) {
+                    this.jTextAreaInformacion.append("Tokio (Dobles) disponibles: ");
+                } else {
+                    this.jTextAreaInformacion.append("Kyoto (Triples) disponibles: ");
+                }
+            }
+            for (int j = 0; j < habitaciones.get(i).size(); j++) {
+                if (j == habitaciones.get(i).size()-1 ) {
+                    this.jTextAreaInformacion.append(habitaciones.get(i).get(j)+".");
+                }else{
+                    this.jTextAreaInformacion.append(habitaciones.get(i).get(j)+",");
+                }               
+            }
+            this.jTextAreaInformacion.append("\n");
+            
+        }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
+
+    private void jComboBoxPisoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxPisoMouseClicked
+        // TODO add your handling code here:
+        this.jTextAreaInformacion.setText("");
+    }//GEN-LAST:event_jComboBoxPisoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -169,21 +201,20 @@ public class ConsultarPorHabitacion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultarPorHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarPorPiso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultarPorHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarPorPiso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultarPorHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarPorPiso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultarPorHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarPorPiso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsultarPorHabitacion().setVisible(true);
+                new ConsultarPorPiso().setVisible(true);
             }
         });
     }
@@ -191,11 +222,11 @@ public class ConsultarPorHabitacion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonLimpiar;
+    private javax.swing.JComboBox jComboBoxPiso;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaInformacion;
-    private javax.swing.JTextField jTextFieldNumeroDeHabitacion;
     // End of variables declaration//GEN-END:variables
 }

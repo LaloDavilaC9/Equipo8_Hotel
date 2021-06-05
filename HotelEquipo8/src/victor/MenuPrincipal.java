@@ -24,6 +24,7 @@ import org.jfree.data.general.DefaultPieDataset;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import victor.miniForms.ConsultarPorHabitacion;
 import victor.miniForms.ConsultarPorNombre;
+import victor.miniForms.ConsultarPorPiso;
 import victor.miniForms.IngresosDelHotel;
 import victor.miniForms.PrecioDeHabitaciones;
 import victor.miniForms.TotalDeHabitaciones;
@@ -152,6 +153,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuConsultarHabDispXPiso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/HabDispo.png"))); // NOI18N
         jMenuConsultarHabDispXPiso.setText("Hab. Disponibles por piso");
         jMenuConsultarHabDispXPiso.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultarHabDispXPiso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuConsultarHabDispXPisoMouseClicked(evt);
+            }
+        });
         jMenuConsultas.add(jMenuConsultarHabDispXPiso);
 
         jMenuConsultaBuscar.setBackground(new java.awt.Color(0, 0, 0));
@@ -176,7 +182,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuConsultaPorHabitacion.setBackground(new java.awt.Color(0, 0, 0));
         jMenuConsultaPorHabitacion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 1, true));
         jMenuConsultaPorHabitacion.setForeground(new java.awt.Color(204, 204, 0));
-        jMenuConsultaPorHabitacion.setText("por No. Habitacion");
+        jMenuConsultaPorHabitacion.setText("Por No. Habitacion");
         jMenuConsultaPorHabitacion.setFocusable(false);
         jMenuConsultaPorHabitacion.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jMenuConsultaPorHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -494,6 +500,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         consultaXHab.setLocationRelativeTo(null);
         consultaXHab.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuConsultaPorHabitacionMouseClicked
+
+    private void jMenuConsultarHabDispXPisoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConsultarHabDispXPisoMouseClicked
+        // TODO add your handling code here:
+        ConsultarPorPiso consXPiso = new ConsultarPorPiso();
+        consXPiso.setVisible(true);
+        consXPiso.setLocationRelativeTo(null);
+        consXPiso.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuConsultarHabDispXPisoMouseClicked
 
     /**
      * @param args the command line arguments
