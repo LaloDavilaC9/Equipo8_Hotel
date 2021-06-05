@@ -26,6 +26,7 @@ import victor.miniForms.ConsultarPorHabitacion;
 import victor.miniForms.ConsultarPorNombre;
 import victor.miniForms.ConsultarPorPiso;
 import victor.miniForms.IngresosDelHotel;
+import victor.miniForms.PersonasHospedadas;
 import victor.miniForms.PrecioDeHabitaciones;
 import victor.miniForms.TotalDeHabitaciones;
 
@@ -124,6 +125,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuConsultarPersonasHospedadas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/PersonasHospedadas.png"))); // NOI18N
         jMenuConsultarPersonasHospedadas.setText("Personas hospedadas");
         jMenuConsultarPersonasHospedadas.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultarPersonasHospedadas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuConsultarPersonasHospedadasMouseClicked(evt);
+            }
+        });
         jMenuConsultas.add(jMenuConsultarPersonasHospedadas);
 
         jMenuConsultaExtra.setBackground(new java.awt.Color(0, 0, 0));
@@ -508,6 +514,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         consXPiso.setLocationRelativeTo(null);
         consXPiso.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuConsultarHabDispXPisoMouseClicked
+
+    private void jMenuConsultarPersonasHospedadasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConsultarPersonasHospedadasMouseClicked
+        // TODO add your handling code here:
+        PersonasHospedadas personasHosp = new PersonasHospedadas();
+        personasHosp.setVisible(true);
+        personasHosp.setLocationRelativeTo(null);
+        personasHosp.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuConsultarPersonasHospedadasMouseClicked
 
     /**
      * @param args the command line arguments
