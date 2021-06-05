@@ -22,6 +22,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
+import victor.miniForms.IngresosDelHotel;
 
 /**
  *
@@ -54,6 +55,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabelFondoMenu = new javax.swing.JLabel();
+        jDesktopPaneEscritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCheckIn = new javax.swing.JMenu();
         jMenuCheckOut = new javax.swing.JMenu();
@@ -86,6 +88,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabelFondoMenu.setMaximumSize(new java.awt.Dimension(121212, 121212));
         jLabelFondoMenu.setPreferredSize(jPanel1.getPreferredSize());
         jPanel1.add(jLabelFondoMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jDesktopPaneEscritorio.setPreferredSize(new Dimension(ancho,alto));
+
+        javax.swing.GroupLayout jDesktopPaneEscritorioLayout = new javax.swing.GroupLayout(jDesktopPaneEscritorio);
+        jDesktopPaneEscritorio.setLayout(jDesktopPaneEscritorioLayout);
+        jDesktopPaneEscritorioLayout.setHorizontalGroup(
+            jDesktopPaneEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1010, Short.MAX_VALUE)
+        );
+        jDesktopPaneEscritorioLayout.setVerticalGroup(
+            jDesktopPaneEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jDesktopPaneEscritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 440));
 
         jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -195,6 +212,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuConsultarIngresos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Ingresos.png"))); // NOI18N
         jMenuConsultarIngresos.setText("Ingresos del hotel");
         jMenuConsultarIngresos.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultarIngresos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuConsultarIngresosMouseClicked(evt);
+            }
+        });
         jMenuConsultas.add(jMenuConsultarIngresos);
 
         jMenuConsultarPorcentajes.setBackground(new java.awt.Color(0, 0, 0));
@@ -272,7 +294,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -423,6 +445,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Ocupacion graficaTotal = new Ocupacion();
     }//GEN-LAST:event_jMenuConsultarPorcentajeOcupacionHotelMouseClicked
 
+    private void jMenuConsultarIngresosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConsultarIngresosMouseClicked
+        // TODO add your handling code here:
+        IngresosDelHotel ingresos = new IngresosDelHotel();
+        ingresos.setVisible(true);
+        ingresos.setLocationRelativeTo(null);
+        ingresos.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuConsultarIngresosMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -471,6 +501,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane jDesktopPaneEscritorio;
     private javax.swing.JLabel jLabelFondoMenu;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCheckIn;
