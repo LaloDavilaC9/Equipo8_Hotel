@@ -22,6 +22,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
+import victor.miniForms.ConsultarPorNombre;
 import victor.miniForms.IngresosDelHotel;
 import victor.miniForms.PrecioDeHabitaciones;
 import victor.miniForms.TotalDeHabitaciones;
@@ -164,6 +165,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuConsultarPorHuesped.setForeground(new java.awt.Color(204, 204, 0));
         jMenuConsultarPorHuesped.setText("Por nombre");
         jMenuConsultarPorHuesped.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultarPorHuesped.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuConsultarPorHuespedMouseClicked(evt);
+            }
+        });
         jMenuConsultaBuscar.add(jMenuConsultarPorHuesped);
 
         jMenuConsultaPorHabitacion.setBackground(new java.awt.Color(0, 0, 0));
@@ -466,6 +472,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         precioHab.setLocationRelativeTo(null);
         precioHab.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuConsultarCostosHabMouseClicked
+
+    private void jMenuConsultarPorHuespedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConsultarPorHuespedMouseClicked
+        // TODO add your handling code here:
+        ConsultarPorNombre consultaPorNombre = new ConsultarPorNombre();
+        consultaPorNombre.setVisible(true);
+        consultaPorNombre.setLocationRelativeTo(null);
+        consultaPorNombre.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuConsultarPorHuespedMouseClicked
 
     /**
      * @param args the command line arguments
