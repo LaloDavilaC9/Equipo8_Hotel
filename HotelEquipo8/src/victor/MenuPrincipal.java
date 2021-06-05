@@ -325,6 +325,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jMenuConsultarPorcentajeOcupacionTipHabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConsultarPorcentajeOcupacionTipHabMouseClicked
         // TODO add your handling code here:
         baseDeDatos b = new baseDeDatos();
+        float porcentajes[]= new float [3];
+        porcentajes = b.consultarPorcentajesOcupacion();
         boolean ocupadaSencillas[] = new boolean [14];
         boolean ocupadaDobles[] = new boolean [16];
         boolean ocupadaTriples[] = new boolean [15];
@@ -421,9 +423,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         produccion[1] = doblesOcupadas;
         produccion[2] = triplesOcupadas;
         DefaultPieDataset dataset = new DefaultPieDataset();
-        dataset.setValue("Osaka (Sencilla)", new Integer(produccion[0]));
-        dataset.setValue("Tokio (Doble)", new Integer(produccion[1]));
-        dataset.setValue("Kyoto (Triple)", new Integer(produccion[2]));
+        dataset.setValue("Osaka (Sencilla) "+porcentajes[0]+"% de su 100%", new Integer(produccion[0]));
+        dataset.setValue("Tokio (Doble) "+porcentajes[1]+"% de su 100%", new Integer(produccion[1]));
+        dataset.setValue("Kyoto (Triple) "+porcentajes[2]+"% de su 100%", new Integer(produccion[2]));
         
         JFreeChart chart = ChartFactory.createPieChart("HABITACIONES OCUPADAS \n California Suite",dataset,true,true, false);
         ChartPanel panel= new ChartPanel(chart);
