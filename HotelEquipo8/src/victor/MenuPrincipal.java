@@ -22,6 +22,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
+import victor.miniForms.ConsultarPorHabitacion;
 import victor.miniForms.ConsultarPorNombre;
 import victor.miniForms.IngresosDelHotel;
 import victor.miniForms.PrecioDeHabitaciones;
@@ -178,6 +179,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuConsultaPorHabitacion.setText("por No. Habitacion");
         jMenuConsultaPorHabitacion.setFocusable(false);
         jMenuConsultaPorHabitacion.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultaPorHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuConsultaPorHabitacionMouseClicked(evt);
+            }
+        });
         jMenuConsultaBuscar.add(jMenuConsultaPorHabitacion);
 
         jMenuConsultas.add(jMenuConsultaBuscar);
@@ -480,6 +486,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         consultaPorNombre.setLocationRelativeTo(null);
         consultaPorNombre.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuConsultarPorHuespedMouseClicked
+
+    private void jMenuConsultaPorHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConsultaPorHabitacionMouseClicked
+        // TODO add your handling code here:
+        ConsultarPorHabitacion consultaXHab = new ConsultarPorHabitacion();
+        consultaXHab.setVisible(true);
+        consultaXHab.setLocationRelativeTo(null);
+        consultaXHab.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuConsultaPorHabitacionMouseClicked
 
     /**
      * @param args the command line arguments
