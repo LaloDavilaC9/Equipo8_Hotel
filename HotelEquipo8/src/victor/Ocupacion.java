@@ -83,13 +83,15 @@ public class Ocupacion {
     }
 
     private static void grafica(int disponibles, int ocupadas) {
-
+        float porcentaje = 0;
+        baseDeDatos b = new baseDeDatos();
+        porcentaje = b.consultarPorcentajeTotalOcupacion();     
         DefaultPieDataset graf1 = new DefaultPieDataset();
         
         graf1.setValue("Total ocupado", disponibles);
         graf1.setValue("Total disponible", ocupadas);
 
-        JFreeChart chart = ChartFactory.createPieChart("OCUPACION DEL HOTEL\nCalifornia Suite", graf1, true, true, false);
+        JFreeChart chart = ChartFactory.createPieChart("OCUPACION DEL HOTEL\nCalifornia Suite ocupado al "+porcentaje+"%", graf1, true, true, false);
 
         ChartFrame frame = new ChartFrame("Ocupacion total", chart);
         frame.pack();

@@ -23,6 +23,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import victor.miniForms.IngresosDelHotel;
+import victor.miniForms.PrecioDeHabitaciones;
 import victor.miniForms.TotalDeHabitaciones;
 
 /**
@@ -181,6 +182,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuConsultarCostosHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Costos.png"))); // NOI18N
         jMenuConsultarCostosHab.setText("Costos de hab");
         jMenuConsultarCostosHab.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultarCostosHab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuConsultarCostosHabMouseClicked(evt);
+            }
+        });
         jMenuConsultas.add(jMenuConsultarCostosHab);
 
         jMenuConsultarTotalHab.setBackground(new java.awt.Color(0, 0, 0));
@@ -450,6 +456,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         totHab.setLocationRelativeTo(null);
         totHab.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuConsultarTotalHabMouseClicked
+
+    private void jMenuConsultarCostosHabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConsultarCostosHabMouseClicked
+        // TODO add your handling code here:
+        PrecioDeHabitaciones precioHab = new PrecioDeHabitaciones();
+        precioHab.setVisible(true);
+        precioHab.setLocationRelativeTo(null);
+        precioHab.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuConsultarCostosHabMouseClicked
 
     /**
      * @param args the command line arguments
