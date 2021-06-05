@@ -7,6 +7,12 @@ package victor.miniForms;
 
 import consultas.MySqlConn;
 import consultas.baseDeDatos;
+import javax.swing.JFrame;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -25,8 +31,35 @@ public class TotalDeHabitaciones extends javax.swing.JFrame {
         this.jTextFieldTriples.setText("");
         habitaciones = b.consultarNumeroHabitaciones();
         this.jTextFieldSencillas.setText(habitaciones[0]+"");
-        this.jTextFieldDobles.setText(habitaciones[1]+"");
-        this.jTextFieldTriples.setText(habitaciones[2]+"");
+        this.jTextFieldDobles.setText(habitaciones[1] + "");
+        this.jTextFieldTriples.setText(habitaciones[2] + "");
+
+        String Osaka = "Osaka (Sencilla)";
+        String Tokio = "Tokio (Doble)";
+        String Kyoto = "Kyoto (Triple)";
+
+        String miniTitulo = "Ocupacion actual";
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+        dataset.addValue(habitaciones[0], Osaka, miniTitulo);
+        dataset.addValue(habitaciones[1], Tokio, miniTitulo);
+        dataset.addValue(habitaciones[2], Kyoto, miniTitulo);
+
+        JFreeChart barChart = ChartFactory.createBarChart(
+                "Cantidad de habitaciones \n California Suite",
+                "Tipo y total de habitaciones",
+                "Cantidad de habitaciones",
+                dataset,
+                PlotOrientation.VERTICAL, true, true, false);
+
+        ChartPanel panel = new ChartPanel(barChart);
+        panel.setPreferredSize(new java.awt.Dimension(560, 367));
+
+        JFrame ventana = new JFrame("Grafica cantidad de habitaciones");
+        ventana.setVisible(true);
+        ventana.setSize(529, 386);
+        ventana.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        ventana.add(panel);
     }
 
     /**
