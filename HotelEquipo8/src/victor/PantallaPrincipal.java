@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.digest.DigestUtils;
 import victor.miniForms.AlertaErrorLogin;
+import victor.miniForms.FormInicioDeSesion;
 
 /**
  *
@@ -53,14 +54,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButtonHabitacionesDisponibles = new javax.swing.JButton();
-        jTextFieldNombreDeUsuario = new javax.swing.JTextField();
-        jPasswordFieldContraseniasuario = new javax.swing.JPasswordField();
-        jButtonGaleriaImagenes = new javax.swing.JButton();
-        jButtonIniciarSesion = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabelImagenPrincipal = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuHabitacionesDisponibles = new javax.swing.JMenu();
+        jMenuGaleriaDeImagenes = new javax.swing.JMenu();
+        jMenuLogIn = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
@@ -70,60 +68,51 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new Dimension(ancho,alto));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonHabitacionesDisponibles.setBackground(new java.awt.Color(0, 0, 0));
-        jButtonHabitacionesDisponibles.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jButtonHabitacionesDisponibles.setForeground(new java.awt.Color(204, 204, 0));
-        jButtonHabitacionesDisponibles.setText("Habitaciones disponibles");
-        jButtonHabitacionesDisponibles.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonHabitacionesDisponiblesActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButtonHabitacionesDisponibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 820, -1, -1));
-
-        jTextFieldNombreDeUsuario.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jPanel1.add(jTextFieldNombreDeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 740, 520, -1));
-
-        jPasswordFieldContraseniasuario.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jPanel1.add(jPasswordFieldContraseniasuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 820, 520, -1));
-
-        jButtonGaleriaImagenes.setBackground(new java.awt.Color(0, 0, 0));
-        jButtonGaleriaImagenes.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jButtonGaleriaImagenes.setForeground(new java.awt.Color(204, 204, 0));
-        jButtonGaleriaImagenes.setText("Galeria de imagenes");
-        jButtonGaleriaImagenes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGaleriaImagenesActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButtonGaleriaImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 890, -1, -1));
-
-        jButtonIniciarSesion.setBackground(new java.awt.Color(0, 0, 0));
-        jButtonIniciarSesion.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jButtonIniciarSesion.setForeground(new java.awt.Color(204, 204, 0));
-        jButtonIniciarSesion.setText("Iniciar sesión");
-        jButtonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciarSesionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButtonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 890, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 0));
-        jLabel1.setText("Nombre de usuario:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 740, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 0));
-        jLabel2.setText("Contraseña:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 820, -1, -1));
-
         jLabelImagenPrincipal.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabelImagenPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelImagenPrincipal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabelImagenPrincipal.setPreferredSize(new Dimension(ancho,alto));
         jPanel1.add(jLabelImagenPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
+
+        jMenuHabitacionesDisponibles.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuHabitacionesDisponibles.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 0)));
+        jMenuHabitacionesDisponibles.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuHabitacionesDisponibles.setText("Habitaciones disponibles   ");
+        jMenuHabitacionesDisponibles.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jMenuHabitacionesDisponibles.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuHabitacionesDisponiblesMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenuHabitacionesDisponibles);
+
+        jMenuGaleriaDeImagenes.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuGaleriaDeImagenes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 0)));
+        jMenuGaleriaDeImagenes.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuGaleriaDeImagenes.setText("Galeria de imagenes   ");
+        jMenuGaleriaDeImagenes.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jMenuGaleriaDeImagenes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuGaleriaDeImagenesMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenuGaleriaDeImagenes);
+
+        jMenuLogIn.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuLogIn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 0)));
+        jMenuLogIn.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuLogIn.setText("Log in");
+        jMenuLogIn.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jMenuLogIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuLogInMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenuLogIn);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,45 +122,33 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonGaleriaImagenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGaleriaImagenesActionPerformed
-        // TODO add your handling code here:
-        GaleriaDeImagenesDesdePantallaPrinci galeria = new GaleriaDeImagenesDesdePantallaPrinci();
-        galeria.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonGaleriaImagenesActionPerformed
-
-    private void jButtonHabitacionesDisponiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHabitacionesDisponiblesActionPerformed
+    private void jMenuHabitacionesDisponiblesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuHabitacionesDisponiblesMouseClicked
         // TODO add your handling code here:
         DisponibilidadHabitaciones habDispo = new DisponibilidadHabitaciones();
         habDispo.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButtonHabitacionesDisponiblesActionPerformed
+    }//GEN-LAST:event_jMenuHabitacionesDisponiblesMouseClicked
 
-    private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
+    private void jMenuGaleriaDeImagenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuGaleriaDeImagenesMouseClicked
         // TODO add your handling code here:
-        baseDeDatos b = new baseDeDatos();
-        String usuario = this.jTextFieldNombreDeUsuario.getText().trim();
-        char[] passw = this.jPasswordFieldContraseniasuario.getPassword();
-        String contrasena = new String (passw);
-        boolean aux;
-        aux = b.consultarInicioSesion(usuario, contrasena);
-        if (aux) {
-            MenuPrincipal menu = new MenuPrincipal();
-            menu.setVisible(true);
-            dispose();
-        } else {
-            AlertaErrorLogin alerta = new AlertaErrorLogin();
-            alerta.setVisible(true);
-            alerta.setLocationRelativeTo(null);
-            alerta.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        }
-    }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
+        GaleriaDeImagenesDesdePantallaPrinci galeria = new GaleriaDeImagenesDesdePantallaPrinci();
+        galeria.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuGaleriaDeImagenesMouseClicked
+
+    private void jMenuLogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuLogInMouseClicked
+        // TODO add your handling code here:
+        FormInicioDeSesion login = new FormInicioDeSesion();
+        login.setVisible(true);
+        login.setLocationRelativeTo(null);
+        login.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuLogInMouseClicked
 
     /**
      * @param args the command line arguments
@@ -222,14 +199,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonGaleriaImagenes;
-    private javax.swing.JButton jButtonHabitacionesDisponibles;
-    private javax.swing.JButton jButtonIniciarSesion;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelImagenPrincipal;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuGaleriaDeImagenes;
+    private javax.swing.JMenu jMenuHabitacionesDisponibles;
+    private javax.swing.JMenu jMenuLogIn;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordFieldContraseniasuario;
-    private javax.swing.JTextField jTextFieldNombreDeUsuario;
     // End of variables declaration//GEN-END:variables
 }
