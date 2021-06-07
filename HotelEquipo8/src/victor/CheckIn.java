@@ -142,8 +142,7 @@ public class CheckIn extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 70, 50));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo3.jpg"))); // NOI18N
-        jLabelFondo.setMinimumSize(new java.awt.Dimension(0, 0));
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoCheckIn.jpg"))); // NOI18N
         jLabelFondo.setPreferredSize(jPanel1.getPreferredSize());
         jPanel1.add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 350));
 
