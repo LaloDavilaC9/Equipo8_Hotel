@@ -6,6 +6,7 @@
 package victor;
 
 import consultas.baseDeDatos;
+import java.applet.AudioClip;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
@@ -40,13 +41,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
     Toolkit tk;
     Dimension d;
     int ancho, alto;
-
+    AudioClip cancion;
     public MenuPrincipal() {
+        cancion = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/LOFIMenuPrincipal.wav"));
         tk = Toolkit.getDefaultToolkit();
         d = tk.getScreenSize();
         ancho = (int) d.getWidth();
         alto = (int) d.getHeight();
         initComponents();
+        cancion.play();
+        cancion.loop();
         this.pintarImagen(this.jLabelFondoMenu, "src/imagenes/FondoBienvenida.jpg");
     }
 
@@ -330,6 +334,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked
         // TODO add your handling code here:
+        cancion.stop();
         PantallaPrincipal pantallaPrinci = new PantallaPrincipal();
         pantallaPrinci.setVisible(true);
         dispose();
@@ -344,6 +349,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuConsultarGaleriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConsultarGaleriaMouseClicked
         // TODO add your handling code here:
+        cancion.stop();
         GaleriaDeImagenesDesdeMenu galery = new GaleriaDeImagenesDesdeMenu();
         galery.setVisible(true);
         dispose();

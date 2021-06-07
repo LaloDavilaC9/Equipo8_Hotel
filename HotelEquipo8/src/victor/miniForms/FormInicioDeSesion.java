@@ -6,6 +6,7 @@
 package victor.miniForms;
 
 import consultas.baseDeDatos;
+import java.applet.AudioClip;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import victor.MenuPrincipal;
 
@@ -18,7 +19,9 @@ public class FormInicioDeSesion extends javax.swing.JFrame {
     /**
      * Creates new form AlertaErrorLogin
      */
+    AudioClip cancion;
     public FormInicioDeSesion() {
+        cancion = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/LOFIMenuPrincipal.wav"));
         initComponents();
     }
 
@@ -132,6 +135,7 @@ public class FormInicioDeSesion extends javax.swing.JFrame {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
+        cancion.stop();
                 baseDeDatos b = new baseDeDatos();
         String usuario = this.jTextFieldNombreDeUsuario.getText().trim();
         char[] passw = this.jPasswordFieldContrasenia.getPassword();

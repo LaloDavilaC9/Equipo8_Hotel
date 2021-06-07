@@ -7,6 +7,7 @@ package victor;
 
 import consultas.MySqlConn;
 import consultas.baseDeDatos;
+import java.applet.AudioClip;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -31,13 +32,16 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     Dimension d;
     int ancho,alto;
     MySqlConn conn;
+    AudioClip cancion;
     public PantallaPrincipal() {
+        cancion = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/LOFIPantallaPrincipal.wav"));
         tk = Toolkit.getDefaultToolkit();
         d = tk.getScreenSize();
         ancho = (int)d.getWidth() ;
         alto = (int)d.getHeight() ;
         initComponents();
-        
+        cancion.play();
+        cancion.loop();
         System.out.println(""+ancho+" x "+alto);
         this.setLocationRelativeTo(this);
         this.pintarImagen(this.jLabelImagenPrincipal, "src/imagenes/FondoPantallaPrincipal.jpg");
@@ -140,6 +144,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jMenuGaleriaDeImagenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuGaleriaDeImagenesMouseClicked
         // TODO add your handling code here:
+        cancion.stop();
         GaleriaDeImagenesDesdePantallaPrinci galeria = new GaleriaDeImagenesDesdePantallaPrinci();
         galeria.setVisible(true);
         dispose();
@@ -147,6 +152,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jMenuLogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuLogInMouseClicked
         // TODO add your handling code here:
+        cancion.stop();
         FormInicioDeSesion login = new FormInicioDeSesion();
         login.setVisible(true);
         login.setLocationRelativeTo(null);

@@ -78,6 +78,7 @@ public class CheckIn extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new Dimension(ancho,alto));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButtonRegistrar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jButtonRegistrar.setText("Registrar");
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,53 +87,87 @@ public class CheckIn extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, -1));
 
+        jLabelNombre.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombre.setText("Nombre:");
         jPanel1.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
+        jLabelApellidoP.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabelApellidoP.setForeground(new java.awt.Color(255, 255, 255));
         jLabelApellidoP.setText("Apellido Paterno:");
         jPanel1.add(jLabelApellidoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
+        jLabelApellidoM.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabelApellidoM.setForeground(new java.awt.Color(255, 255, 255));
         jLabelApellidoM.setText("Apellido Materno:");
         jPanel1.add(jLabelApellidoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
+        jLabelCiudad.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabelCiudad.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCiudad.setText("Ciudad:");
-        jPanel1.add(jLabelCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 153, -1, -1));
+        jPanel1.add(jLabelCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
+        jLabelIngreso.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabelIngreso.setForeground(new java.awt.Color(255, 255, 255));
         jLabelIngreso.setText("Ingreso:");
-        jPanel1.add(jLabelIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 182, -1, -1));
+        jPanel1.add(jLabelIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
+        jLabelDias.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabelDias.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDias.setText("Dias de hospedaje:");
-        jPanel1.add(jLabelDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 208, -1, -1));
+        jPanel1.add(jLabelDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
+        jLabelNoHabitacion.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabelNoHabitacion.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNoHabitacion.setText("Número de habitación:");
-        jPanel1.add(jLabelNoHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
+        jPanel1.add(jLabelNoHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
+
+        jTextFieldNombre.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 200, -1));
+
+        jTextFieldApellidoP.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jPanel1.add(jTextFieldApellidoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 200, -1));
+
+        jTextFieldApellidoM.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jPanel1.add(jTextFieldApellidoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 200, -1));
+
+        jTextFieldCiudad.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jPanel1.add(jTextFieldCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 200, -1));
         jPanel1.add(jDateChooserIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 200, -1));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Tipo de habitación:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
+
+        jSpinnerDias.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jPanel1.add(jSpinnerDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 50, -1));
+
+        jSpinnerHuespedes.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jPanel1.add(jSpinnerHuespedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 50, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cantidad de huéspedes:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
         buttonGroupTipoHab.add(jRadioButtonHabSencilla);
+        jRadioButtonHabSencilla.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jRadioButtonHabSencilla.setSelected(true);
         jRadioButtonHabSencilla.setText("Sencilla");
-        jPanel1.add(jRadioButtonHabSencilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, -1, -1));
+        jPanel1.add(jRadioButtonHabSencilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 80, -1));
 
         buttonGroupTipoHab.add(jRadioButtonHabDoble);
+        jRadioButtonHabDoble.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jRadioButtonHabDoble.setText("Doble");
-        jPanel1.add(jRadioButtonHabDoble, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, -1, -1));
+        jPanel1.add(jRadioButtonHabDoble, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, 80, -1));
 
         buttonGroupTipoHab.add(jRadioButtonHabTriple);
+        jRadioButtonHabTriple.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jRadioButtonHabTriple.setText("Triple");
-        jPanel1.add(jRadioButtonHabTriple, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, -1, -1));
+        jPanel1.add(jRadioButtonHabTriple, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 80, -1));
 
+        jListNoHab.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jListNoHab.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "114", "115", "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "211", "212", "213", "214", "215", "301", "302", "303", "304", "305", "306", "307", "308", "309", "310", "311", "312", "313", "314", "315" };
             public int getSize() { return strings.length; }
@@ -140,7 +175,7 @@ public class CheckIn extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jListNoHab);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 70, 50));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 70, 60));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoCheckIn.jpg"))); // NOI18N
         jLabelFondo.setPreferredSize(jPanel1.getPreferredSize());
