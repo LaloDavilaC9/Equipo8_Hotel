@@ -84,7 +84,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
-        setPreferredSize(new Dimension(ancho,alto));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 0));
         jPanel1.setPreferredSize(new Dimension(ancho,alto));
@@ -102,6 +101,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuCheckIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/CheckIn.png"))); // NOI18N
         jMenuCheckIn.setText("Check in   ");
         jMenuCheckIn.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jMenuCheckIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuCheckInMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenuCheckIn);
 
         jMenuCheckOut.setBackground(new java.awt.Color(0, 0, 0));
@@ -522,6 +526,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         personasHosp.setLocationRelativeTo(null);
         personasHosp.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuConsultarPersonasHospedadasMouseClicked
+
+    private void jMenuCheckInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuCheckInMouseClicked
+        // TODO add your handling code here:
+        CheckIn reg = new CheckIn();
+        reg.setVisible(true);
+        reg.setLocationRelativeTo(null);
+        reg.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuCheckInMouseClicked
 
     /**
      * @param args the command line arguments
