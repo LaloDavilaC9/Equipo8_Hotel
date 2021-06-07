@@ -79,6 +79,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuHabitacionesDisponibles.setBackground(new java.awt.Color(0, 0, 0));
         jMenuHabitacionesDisponibles.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 0)));
         jMenuHabitacionesDisponibles.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuHabitacionesDisponibles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/HabDispo2.png"))); // NOI18N
         jMenuHabitacionesDisponibles.setText("Habitaciones disponibles   ");
         jMenuHabitacionesDisponibles.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jMenuHabitacionesDisponibles.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -91,6 +92,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuGaleriaDeImagenes.setBackground(new java.awt.Color(0, 0, 0));
         jMenuGaleriaDeImagenes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 0)));
         jMenuGaleriaDeImagenes.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuGaleriaDeImagenes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Galeria.png"))); // NOI18N
         jMenuGaleriaDeImagenes.setText("Galeria de imagenes   ");
         jMenuGaleriaDeImagenes.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jMenuGaleriaDeImagenes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -103,6 +105,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuLogIn.setBackground(new java.awt.Color(0, 0, 0));
         jMenuLogIn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 0)));
         jMenuLogIn.setForeground(new java.awt.Color(204, 204, 0));
+        jMenuLogIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Login.png"))); // NOI18N
         jMenuLogIn.setText("Log in");
         jMenuLogIn.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jMenuLogIn.addMouseListener(new java.awt.event.MouseAdapter() {
