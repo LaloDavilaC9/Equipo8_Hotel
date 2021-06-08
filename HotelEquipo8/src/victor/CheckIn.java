@@ -19,6 +19,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
+import victor.miniForms.ReciboDeCheckIn;
 
 /**
  *
@@ -289,13 +290,13 @@ public class CheckIn extends javax.swing.JFrame {
             */
             
             int aux2 = Integer.parseInt(datos[7]);
-            if (aux2 >= 101 && aux2 <= 105 || aux2 >= 201 && aux2 <= 203 || aux2 >= 301 && aux2 <= 306){
+            if (aux2 >= 101 && aux2 <= 105 || aux2 >= 201 && aux2 <= 203 || aux2 >= 301 && aux2 <= 306){//Para el tipo 1
                 this.jRadioButtonHabSencilla.setSelected(true);
             }
-            if (aux2 >= 106 && aux2 <= 111 || aux2 >= 204 && aux2 <= 210 || aux2 >= 307 && aux2 <= 309){
+            if (aux2 >= 106 && aux2 <= 111 || aux2 >= 204 && aux2 <= 210 || aux2 >= 307 && aux2 <= 309){//Para el tipo 2
                 this.jRadioButtonHabDoble.setSelected(true);
             }
-            if (aux2 >= 112 && aux2 <= 115 || aux2 >= 211 && aux2 <= 215 || aux2 >= 310 && aux2 <= 315){
+            if (aux2 >= 112 && aux2 <= 115 || aux2 >= 211 && aux2 <= 215 || aux2 >= 310 && aux2 <= 315){//Para el tipo 3
                 this.jRadioButtonHabTriple.setSelected(true);
             }
             
@@ -338,7 +339,11 @@ public class CheckIn extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this,"Error al ingresar el huésped");
                 }
             }
-        }catch(Exception ex){
+            ReciboDeCheckIn recibo = new ReciboDeCheckIn(datos);
+            recibo.setVisible(true);
+            recibo.setLocationRelativeTo(null);
+            recibo.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error en el registro");
             ex.printStackTrace();
         }
