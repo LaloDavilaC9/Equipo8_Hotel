@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -190,6 +191,31 @@ public class baseDeDatos {
             lista = null;
         }
         return lista;
+    }
+    
+    //Consulta EXTRA, info de los huespedes por PISO
+    public ArrayList<String> huespedesPiso(String piso){
+        String query = "SELECT huespedes.No_Habitacion, huespedes.Nombre,huespedes.Ap_Paterno,huespedes.Ap_Materno,huespedes.Ciudad,huespedes.Ingreso,huespedes.Salida FROM huespedes INNER JOIN habitaciones ON huespedes.No_Habitacion = habitaciones.Hab_id WHERE habitaciones.piso = "+piso;
+        String informacion = "";
+        ArrayList<String> info = new ArrayList<String>();
+        try{
+            this.conn.Consult(query);
+            do{
+                informacion+=" "+this.conn.rs.getString("No_Habitacion");
+                informacion+=" "+(this.conn.rs.getString("Nombre"));
+                informacion+=" "+(this.conn.rs.getString("Ap_Paterno"));
+                informacion+=" "+(this.conn.rs.getString("Ap_Materno"));
+                informacion+=" "+(this.conn.rs.getString("Ciudad"));
+                informacion+=" "+(this.conn.rs.getString("Ingreso"));
+                informacion+=" "+(this.conn.rs.getString("salida"));
+                info.add(informacion);
+                informacion="";
+            }while(this.conn.rs.next());
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+        return info;
+        
     }
     
     public void registrarHuesped(String datos[]){

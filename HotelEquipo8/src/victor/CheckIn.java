@@ -18,6 +18,7 @@ import java.util.Map;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
 
 /**
  *
@@ -33,30 +34,10 @@ public class CheckIn extends javax.swing.JFrame {
     Dimension d;
     int ancho,alto;
     
-    public CheckIn() {
-        baseDeDatos consulta = new baseDeDatos();
-        HashMap<String,String> mapa = new HashMap();
+    public CheckIn() {        
         initComponents();
-        this.setLocationRelativeTo(null);
-        DefaultListModel<String> lista = new DefaultListModel<>();
-        mapa = consulta.habDisponibles();
-        Iterator it = mapa.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry e = (Map.Entry)it.next();
-            if(e.getValue()== "1")
-                lista.addElement((String) e.getKey());
-            System.out.println(e.getKey() + " " + e.getValue());
-        }
-        
-        jListNoHab = new JList(lista);
-        /*jListNoHab.setModel(new javax.swing.AbstractListModel() {
-            ArrayList <String> strings;
-            
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });*/
-        jScrollPane1.setViewportView(jListNoHab);
-        //jListNoHab = new JList<>(lista);
+        setLocationRelativeTo(null);
+        this.actualizarLista("1");
     }
 
     /**
@@ -70,6 +51,8 @@ public class CheckIn extends javax.swing.JFrame {
 
         buttonGroupTipoHab = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListNoHab = new javax.swing.JList();
         jButtonRegistrar = new javax.swing.JButton();
         jLabelNombre = new javax.swing.JLabel();
         jLabelApellidoP = new javax.swing.JLabel();
@@ -90,8 +73,6 @@ public class CheckIn extends javax.swing.JFrame {
         jRadioButtonHabSencilla = new javax.swing.JRadioButton();
         jRadioButtonHabDoble = new javax.swing.JRadioButton();
         jRadioButtonHabTriple = new javax.swing.JRadioButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jListNoHab = new javax.swing.JList();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -103,6 +84,15 @@ public class CheckIn extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanel1.setPreferredSize(new Dimension(ancho,alto));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jListNoHab.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jListNoHab);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 70, 50));
 
         jButtonRegistrar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jButtonRegistrar.setText("Registrar");
@@ -181,29 +171,32 @@ public class CheckIn extends javax.swing.JFrame {
         jRadioButtonHabSencilla.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jRadioButtonHabSencilla.setSelected(true);
         jRadioButtonHabSencilla.setText("Sencilla");
+        jRadioButtonHabSencilla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonHabSencillaActionPerformed(evt);
+            }
+        });
         jPanel1.add(jRadioButtonHabSencilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 80, -1));
 
         buttonGroupTipoHab.add(jRadioButtonHabDoble);
         jRadioButtonHabDoble.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jRadioButtonHabDoble.setText("Doble");
+        jRadioButtonHabDoble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonHabDobleActionPerformed(evt);
+            }
+        });
         jPanel1.add(jRadioButtonHabDoble, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, 80, -1));
 
         buttonGroupTipoHab.add(jRadioButtonHabTriple);
         jRadioButtonHabTriple.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jRadioButtonHabTriple.setText("Triple");
-        jPanel1.add(jRadioButtonHabTriple, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 80, -1));
-
-        jListNoHab.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jListNoHab.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "114", "115", "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "211", "212", "213", "214", "215", "301", "302", "303", "304", "305", "306", "307", "308", "309", "310", "311", "312", "313", "314", "315" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        jRadioButtonHabTriple.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonHabTripleActionPerformed(evt);
+            }
         });
-        jListNoHab.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jListNoHab.setToolTipText("");
-        jScrollPane1.setViewportView(jListNoHab);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 70, 60));
+        jPanel1.add(jRadioButtonHabTriple, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 80, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoCheckIn.jpg"))); // NOI18N
         jLabelFondo.setPreferredSize(jPanel1.getPreferredSize());
@@ -285,6 +278,8 @@ public class CheckIn extends javax.swing.JFrame {
                 registroPermitido = false;
             }
             
+            //if(this.jRadioButtonHabSencilla.isSelected() && aux3>3)
+                
             //Asignación de tipo de habitación por No. de habitación
             /*
                 Cantidad de personas
@@ -306,20 +301,23 @@ public class CheckIn extends javax.swing.JFrame {
             
             if (this.jRadioButtonHabSencilla.isSelected()){
                 tipo = "Sencilla";
-                if (aux3 < 0 && aux3 > 3){
+                if (aux3 < 0 || aux3 > 3){
                     registroPermitido = false;
+                    JOptionPane.showMessageDialog(this, "Número de huéspedes no válido");
                 }
             }
             if (this.jRadioButtonHabDoble.isSelected()){
                 tipo = "Doble";
-                if (aux3 < 0 && aux3 > 4){
+                if (aux3 < 0 || aux3 > 4){
                     registroPermitido = false;
+                    JOptionPane.showMessageDialog(this, "Número de huéspedes no válido");
                 }
             }
             if (this.jRadioButtonHabTriple.isSelected()){
                 tipo = "Triple";
-                if (aux3 < 0 && aux3 > 5){
+                if (aux3 < 0 || aux3 > 5){
                     registroPermitido = false;
+                    JOptionPane.showMessageDialog(this, "Número de huéspedes no válido");
                 }
             }
             
@@ -346,6 +344,32 @@ public class CheckIn extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
+    private void jRadioButtonHabDobleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonHabDobleActionPerformed
+        actualizarLista("2");
+    }//GEN-LAST:event_jRadioButtonHabDobleActionPerformed
+
+    private void jRadioButtonHabSencillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonHabSencillaActionPerformed
+        actualizarLista("1");
+    }//GEN-LAST:event_jRadioButtonHabSencillaActionPerformed
+
+    private void jRadioButtonHabTripleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonHabTripleActionPerformed
+        actualizarLista("3");
+    }//GEN-LAST:event_jRadioButtonHabTripleActionPerformed
+
+    private void actualizarLista(String seleccionHabitacion){
+        baseDeDatos consulta = new baseDeDatos();
+        HashMap<String,String> mapa = new HashMap();
+        mapa = consulta.habDisponibles();
+        Iterator it = mapa.entrySet().iterator();
+        DefaultListModel <String> lista=new DefaultListModel<>();
+        while (it.hasNext()) {
+            Map.Entry e = (Map.Entry)it.next();
+            if(e.getValue().equals(seleccionHabitacion))
+                lista.addElement((String) e.getKey());
+        }
+        jListNoHab.setModel(lista);
+      
+    }
     /**
      * @param args the command line arguments
      */
