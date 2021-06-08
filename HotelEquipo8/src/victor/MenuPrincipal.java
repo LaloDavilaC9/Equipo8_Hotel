@@ -23,6 +23,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
+import victor.miniForms.ConsultaExtraPorPiso;
 import victor.miniForms.ConsultarPorHabitacion;
 import victor.miniForms.ConsultarPorNombre;
 import victor.miniForms.ConsultarPorPiso;
@@ -147,6 +148,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuConsultaExtra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/ConsultaExtra.png"))); // NOI18N
         jMenuConsultaExtra.setText("Consulta extra");
         jMenuConsultaExtra.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenuConsultaExtra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuConsultaExtraMouseClicked(evt);
+            }
+        });
         jMenuConsultas.add(jMenuConsultaExtra);
 
         jMenuConsultarGaleria.setBackground(new java.awt.Color(0, 0, 0));
@@ -554,6 +560,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pedirHab.setLocationRelativeTo(null);
         pedirHab.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuEditarMouseClicked
+
+    private void jMenuConsultaExtraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConsultaExtraMouseClicked
+        // TODO add your handling code here:
+        ConsultaExtraPorPiso consulExtra = new ConsultaExtraPorPiso();
+        consulExtra.setVisible(true);
+        consulExtra.setLocationRelativeTo(null);
+        consulExtra.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuConsultaExtraMouseClicked
 
     /**
      * @param args the command line arguments

@@ -212,7 +212,7 @@ public class baseDeDatos {
                 informacion="";
             }while(this.conn.rs.next());
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Error");
+            JOptionPane.showMessageDialog(null, "No hay ningun huesped en ese piso");
         }
         return info;
         
