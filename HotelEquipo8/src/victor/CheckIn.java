@@ -10,7 +10,13 @@ import consultas.baseDeDatos;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,11 +32,31 @@ public class CheckIn extends javax.swing.JFrame {
     Toolkit tk;
     Dimension d;
     int ancho,alto;
-    MySqlConn conn;
     
     public CheckIn() {
+        baseDeDatos consulta = new baseDeDatos();
+        HashMap<String,String> mapa = new HashMap();
         initComponents();
         this.setLocationRelativeTo(null);
+        DefaultListModel<String> lista = new DefaultListModel<>();
+        mapa = consulta.habDisponibles();
+        Iterator it = mapa.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry e = (Map.Entry)it.next();
+            if(e.getValue()== "1")
+                lista.addElement((String) e.getKey());
+            System.out.println(e.getKey() + " " + e.getValue());
+        }
+        
+        jListNoHab = new JList(lista);
+        /*jListNoHab.setModel(new javax.swing.AbstractListModel() {
+            ArrayList <String> strings;
+            
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });*/
+        jScrollPane1.setViewportView(jListNoHab);
+        //jListNoHab = new JList<>(lista);
     }
 
     /**
@@ -173,6 +199,8 @@ public class CheckIn extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        jListNoHab.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jListNoHab.setToolTipText("");
         jScrollPane1.setViewportView(jListNoHab);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 70, 60));
