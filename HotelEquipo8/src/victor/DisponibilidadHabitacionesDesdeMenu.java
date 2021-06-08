@@ -230,6 +230,7 @@ public class DisponibilidadHabitacionesDesdeMenu extends javax.swing.JFrame{
 
         int moverIzquierdaPuerta = ancho - 80;
         int moverIzquierdaCirculo = ancho - 80;
+        int moverIzquierdaTipo = ancho - 80;
         n = 30;
         //Para tercer piso.
         for (int i = 0; i < 15; i++) {
@@ -238,15 +239,37 @@ public class DisponibilidadHabitacionesDesdeMenu extends javax.swing.JFrame{
                 g.fillRect(moverIzquierdaPuerta, (int) primerTercio, ancho / 35, alto / 13);
                 g.setColor(Color.BLACK);
                 g.fillOval(moverIzquierdaCirculo, (int) primerTercio + 25, 15, 15);
+                if (i >= 0 && i <= 5) {
+                    g.setColor(Color.YELLOW);
+                }else{
+                    if (i >= 6 && i <= 8) {
+                        g.setColor(Color.BLUE);
+                    }else{
+                        g.setColor(Color.MAGENTA);
+                    }
+                }            
+                g.fillRect(moverIzquierdaPuerta, (int) primerTercio, ancho / 100, alto / 50);
                 moverIzquierdaPuerta -= ancho / 16; //Distancia entre cada puerta.
                 moverIzquierdaCirculo -= ancho / 16; //Distancia entre cada perilla.
+                moverIzquierdaTipo -= ancho / 16; //Distancia entre cada triangulo.
             } else {
                 g.setColor(Color.GREEN);
                 g.fillRect(moverIzquierdaPuerta, (int) primerTercio, ancho / 35, alto / 13);
                 g.setColor(Color.BLACK);
                 g.fillOval(moverIzquierdaCirculo, (int) primerTercio + 25, 15, 15);
+                 if (i >= 0 && i <= 5) {
+                    g.setColor(Color.YELLOW);
+                }else{
+                    if (i >= 6 && i <= 8) {
+                        g.setColor(Color.BLUE);
+                    }else{
+                        g.setColor(Color.MAGENTA);
+                    }
+                }                  
+                g.fillRect(moverIzquierdaPuerta, (int) primerTercio, ancho / 100, alto / 50);
                 moverIzquierdaPuerta -= ancho / 16; //Distancia entre cada puerta.
                 moverIzquierdaCirculo -= ancho / 16; //Distancia entre cada perilla.
+                moverIzquierdaTipo -= ancho / 16; //Distancia entre cada triangulo.
             }
             n++;
         }
@@ -255,21 +278,45 @@ public class DisponibilidadHabitacionesDesdeMenu extends javax.swing.JFrame{
         n = 15;
         moverIzquierdaPuerta = ancho - 80;
         moverIzquierdaCirculo = ancho - 80;
+        moverIzquierdaTipo = ancho - 80;
         for (int i = 0; i < 15; i++) {
             if (ocupada[n]) {
                 g.setColor(Color.RED);
                 g.fillRect(moverIzquierdaPuerta, (int) segundoTercio, ancho / 35, alto / 13);
                 g.setColor(Color.BLACK);
                 g.fillOval(moverIzquierdaCirculo, (int) segundoTercio + 25, 15, 15);
+                if (i >= 0 && i <= 2) {
+                    g.setColor(Color.YELLOW);
+                }else{
+                    if (i >= 3 && i <= 9) {
+                        g.setColor(Color.BLUE);
+                    }else{
+                        g.setColor(Color.MAGENTA);
+                    }
+                }
+                g.fillRect(moverIzquierdaPuerta, (int) segundoTercio, ancho / 100, alto / 50);
                 moverIzquierdaPuerta -= ancho / 16; //Distancia entre cada puerta.
                 moverIzquierdaCirculo -= ancho / 16; //Distancia entre cada perilla.
+                moverIzquierdaTipo -= ancho / 16; //Distancia entre cada triangulo.
             } else {
                 g.setColor(Color.GREEN);
                 g.fillRect(moverIzquierdaPuerta, (int) segundoTercio, ancho / 35, alto / 13);
                 g.setColor(Color.BLACK);
                 g.fillOval(moverIzquierdaCirculo, (int) segundoTercio + 25, 15, 15);
+                if (i >= 0 && i <= 2) {
+                    g.setColor(Color.YELLOW);
+                }else{
+                    if (i >= 3 && i <= 9) {
+                        g.setColor(Color.BLUE);
+                    }else{
+                        g.setColor(Color.MAGENTA);
+                    }
+                }
+                g.fillRect(moverIzquierdaPuerta, (int) segundoTercio, ancho / 100, alto / 50);
+                
                 moverIzquierdaPuerta -= ancho / 16; //Distancia entre cada puerta.
                 moverIzquierdaCirculo -= ancho / 16; //Distancia entre cada perilla.
+                moverIzquierdaTipo -= ancho / 16; //Distancia entre cada triangulo.
             }
             n++;
         }
@@ -278,21 +325,46 @@ public class DisponibilidadHabitacionesDesdeMenu extends javax.swing.JFrame{
         n = 0;
         moverIzquierdaPuerta = ancho - 80;
         moverIzquierdaCirculo = ancho - 80;
+        moverIzquierdaTipo = ancho - 80;
         for (int i = 0; i < 15; i++) {
             if (ocupada[n]) {
                 g.setColor(Color.RED);
                 g.fillRect(moverIzquierdaPuerta, (int) tercerTercio, ancho / 35, alto / 13);
                 g.setColor(Color.BLACK);
                 g.fillOval(moverIzquierdaCirculo, (int) tercerTercio + 25, 15, 15);
+               if (i >= 0 && i <= 4) {
+                    g.setColor(Color.YELLOW);
+                }else{
+                    if (i >= 5 && i <= 10) {
+                        g.setColor(Color.BLUE);
+                    }else{
+                        g.setColor(Color.MAGENTA);
+                    }
+                }                
+                g.fillRect(moverIzquierdaPuerta, (int) tercerTercio, ancho / 100, alto / 50);
+                
                 moverIzquierdaPuerta -= ancho / 16; //Distancia entre cada puerta.
                 moverIzquierdaCirculo -= ancho / 16; //Distancia entre cada perilla.
+                moverIzquierdaTipo -= ancho / 16; //Distancia entre cada triangulo.
             } else {
                 g.setColor(Color.GREEN);
                 g.fillRect(moverIzquierdaPuerta, (int) tercerTercio, ancho / 35, alto / 13);
                 g.setColor(Color.BLACK);
                 g.fillOval(moverIzquierdaCirculo, (int) tercerTercio + 25, 15, 15);
+                if (i >= 0 && i <= 4) {
+                    g.setColor(Color.YELLOW);
+                }else{
+                    if (i >= 5 && i <= 10) {
+                        g.setColor(Color.BLUE);
+                    }else{
+                        g.setColor(Color.MAGENTA);
+                    }
+                }                    
+                g.fillRect(moverIzquierdaPuerta,(int) tercerTercio, ancho / 100, alto / 50);
+                
                 moverIzquierdaPuerta -= ancho / 16; //Distancia entre cada puerta.
                 moverIzquierdaCirculo -= ancho / 16; //Distancia entre cada perilla.
+                moverIzquierdaTipo -= ancho / 16; //Distancia entre cada triangulo.
             }
             n++;
         }
