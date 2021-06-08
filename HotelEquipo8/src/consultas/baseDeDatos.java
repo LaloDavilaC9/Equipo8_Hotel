@@ -384,10 +384,12 @@ public class baseDeDatos {
         //info[2] = Ap materno
         //info[3] = No habitación
         String query = "UPDATE huespedes SET Nombre = '"+info.get(0)+"', Ap_Paterno='"+info.get(1)+"', Ap_Materno='"+info.get(2)+"' WHERE No_habitacion = "+info.get(3);
-        if(this.habOcupada(info.get(3)))
+        if(this.habOcupada(info.get(3))){
             this.conn.Update(query);  
-        else
+            JOptionPane.showMessageDialog(null, "Datos del huesped actualizados");
+        }else{
             JOptionPane.showMessageDialog(null, "Verifique que su información sea correcta");
+        }
     }
     
     private long diferenciaFechas(String salida, String entrada){
