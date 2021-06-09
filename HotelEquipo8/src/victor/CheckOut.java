@@ -167,26 +167,38 @@ public class CheckOut extends javax.swing.JFrame {
             if (this.jCheckBoxGimnasio.isSelected()) {
                 pagarConEx+=100;
                 info[13] = "1";
+            }else{
+                info[13] = "0";
             }
             if (this.jCheckBoxIglesia.isSelected()) {
                 pagarConEx+=3500;
                 info[14] = "1";
+            }else{
+                info[14] = "0";
             }
             if (this.jCheckBoxKaraoke.isSelected()) {
                 pagarConEx+=250;
                 info[15] = "1";
+            }else{
+                info[15] = "0";
             }
             if (this.jCheckBoxPaseoRuinas.isSelected()) {
                 pagarConEx+=50;
                 info[16] = "1";
+            }else{
+                info[16] = "0";
             }
             if (this.jCheckBoxSpa.isSelected()) {
                 pagarConEx+=500;
                 info[17] = "1";
+            }else{
+                info[17] = "0";
             }
             if (this.jCheckBoxSalonUsosMulti.isSelected()) {
                 pagarConEx+= 1200;
                 info[18] = "1";
+            }else{
+                info[18] = "0";
             }
             if (info[8].equals("Sencilla")) {
                 int h = Integer.parseInt(info[6])-1;
@@ -213,7 +225,13 @@ public class CheckOut extends javax.swing.JFrame {
             this.jCheckBoxPaseoRuinas.setSelected(false);
             this.jCheckBoxSalonUsosMulti.setSelected(false);
             this.jCheckBoxSpa.setSelected(false);
-
+            
+            Recibo r = new Recibo();
+            r.generar(info);
+            
+            float ingreso = Float.parseFloat(info[12]);
+            b.actualizarIngresos(ingreso);
+            
         }else{
             AlertaErrorNumeroDeHabitacion habDes = new AlertaErrorNumeroDeHabitacion();
             habDes.setVisible(true);
