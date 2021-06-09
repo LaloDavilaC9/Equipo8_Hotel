@@ -218,7 +218,7 @@ public class CheckIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        String datos[] = new String[9];
+        String datos[] = new String[10];
         /*
         [1] - Nombre
         [2] - Apellido Paterno
@@ -246,6 +246,7 @@ public class CheckIn extends javax.swing.JFrame {
             
             //Suma de fecha con dias de hospedaje [6]
             aux = this.jSpinnerDias.getValue().toString();
+            datos[9] = this.jSpinnerDias.getValue().toString();
             int dias = Integer.parseInt(aux);
             if(dias <= 0){
                 JOptionPane.showMessageDialog(this, "Número de dias para hospedaje no válido");

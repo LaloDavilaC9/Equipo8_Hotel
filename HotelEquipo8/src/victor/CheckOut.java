@@ -19,6 +19,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
+import victor.miniForms.AlertaErrorNumeroDeHabitacion;
 
 /**
  *
@@ -44,6 +45,16 @@ public class CheckOut extends javax.swing.JFrame {
 
         buttonGroupTipoHab = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextFieldNumeroHab = new javax.swing.JTextField();
+        jCheckBoxPaseoRuinas = new javax.swing.JCheckBox();
+        jCheckBoxGimnasio = new javax.swing.JCheckBox();
+        jCheckBoxSpa = new javax.swing.JCheckBox();
+        jCheckBoxIglesia = new javax.swing.JCheckBox();
+        jCheckBoxSalonUsosMulti = new javax.swing.JCheckBox();
+        jCheckBoxKaraoke = new javax.swing.JCheckBox();
+        jLabel2 = new javax.swing.JLabel();
+        jButtonBuscar = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,6 +67,63 @@ public class CheckOut extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new Dimension(ancho,alto));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Selecciona los servicios extra ocupados.");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
+
+        jTextFieldNumeroHab.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jPanel1.add(jTextFieldNumeroHab, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 150, -1));
+
+        jCheckBoxPaseoRuinas.setFont(new java.awt.Font("Segoe UI", 3, 22)); // NOI18N
+        jCheckBoxPaseoRuinas.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxPaseoRuinas.setText("Paseo por ruinas");
+        jPanel1.add(jCheckBoxPaseoRuinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+
+        jCheckBoxGimnasio.setFont(new java.awt.Font("Segoe UI", 3, 22)); // NOI18N
+        jCheckBoxGimnasio.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxGimnasio.setText("Gimnasio");
+        jPanel1.add(jCheckBoxGimnasio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 130, -1));
+
+        jCheckBoxSpa.setFont(new java.awt.Font("Segoe UI", 3, 22)); // NOI18N
+        jCheckBoxSpa.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxSpa.setText("Spa");
+        jPanel1.add(jCheckBoxSpa, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 120, -1));
+
+        jCheckBoxIglesia.setFont(new java.awt.Font("Segoe UI", 3, 22)); // NOI18N
+        jCheckBoxIglesia.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxIglesia.setText("Iglesia");
+        jPanel1.add(jCheckBoxIglesia, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 270, -1));
+
+        jCheckBoxSalonUsosMulti.setFont(new java.awt.Font("Segoe UI", 3, 22)); // NOI18N
+        jCheckBoxSalonUsosMulti.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxSalonUsosMulti.setText("Salón de usos multiples");
+        jPanel1.add(jCheckBoxSalonUsosMulti, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 270, -1));
+
+        jCheckBoxKaraoke.setFont(new java.awt.Font("Segoe UI", 3, 22)); // NOI18N
+        jCheckBoxKaraoke.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxKaraoke.setText("Karaoke");
+        jPanel1.add(jCheckBoxKaraoke, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 190, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("No. de habitación:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        jButtonBuscar.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jButtonBuscar.setForeground(new java.awt.Color(204, 204, 0));
+        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Buscar.png"))); // NOI18N
+        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 2, true));
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 120, 40));
+
+        jLabelFondo.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoCheckOut.jpg"))); // NOI18N
         jLabelFondo.setPreferredSize(jPanel1.getPreferredSize());
         jPanel1.add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 350));
@@ -73,6 +141,86 @@ public class CheckOut extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+        // TODO add your handling code here:
+        int habitacion;
+        String info [] = new String [19];
+        baseDeDatos b = new baseDeDatos();
+        String resultado;
+        habitacion = Integer.parseInt(this.jTextFieldNumeroHab.getText().trim());
+        this.jTextFieldNumeroHab.setText("");
+        resultado = b.consultaQuienHabita(habitacion);
+        if (resultado != "Habitación no ocupada por nadie") {
+            info = b.consultaCheckOut(habitacion);
+            int diasAux = Integer.parseInt(info[7]);
+            double costoAux = Double.parseDouble(info[9]);
+            double pagarSinEx = diasAux * costoAux;
+            info[11] = Double.toString(pagarSinEx);//Pago sin extras.
+            double pagarConEx = pagarSinEx;
+            //Spa = 500
+            //Salon de usos multiples = 1200
+            //Karaoke = 250
+            //Paseo por ruinos = 50
+            //Gimnasio 100
+            //Iglesia eventos 3500
+            if (this.jCheckBoxGimnasio.isSelected()) {
+                pagarConEx+=100;
+                info[13] = "1";
+            }
+            if (this.jCheckBoxIglesia.isSelected()) {
+                pagarConEx+=3500;
+                info[14] = "1";
+            }
+            if (this.jCheckBoxKaraoke.isSelected()) {
+                pagarConEx+=250;
+                info[15] = "1";
+            }
+            if (this.jCheckBoxPaseoRuinas.isSelected()) {
+                pagarConEx+=50;
+                info[16] = "1";
+            }
+            if (this.jCheckBoxSpa.isSelected()) {
+                pagarConEx+=500;
+                info[17] = "1";
+            }
+            if (this.jCheckBoxSalonUsosMulti.isSelected()) {
+                pagarConEx+= 1200;
+                info[18] = "1";
+            }
+            if (info[8].equals("Sencilla")) {
+                int h = Integer.parseInt(info[6])-1;
+                double cantExtra = Double.parseDouble(info[10]);
+                pagarConEx+= h*cantExtra;
+            }
+            if (info[8].equals("Doble")) {
+                int h = Integer.parseInt(info[6])-2;
+                double cantExtra = Double.parseDouble(info[10]);
+                pagarConEx+= h*cantExtra;
+            }
+            if (info[8].equals("Triple")) {
+                int h = Integer.parseInt(info[6])-3;
+                double cantExtra = Double.parseDouble(info[10]);
+                pagarConEx+= h*cantExtra;
+            }
+            info[12] = Double.toString(pagarConEx);
+            for (int i = 0; i < info.length; i++) {
+                System.out.println(info[i]);
+            }
+            this.jCheckBoxGimnasio.setSelected(false);
+            this.jCheckBoxIglesia.setSelected(false);
+            this.jCheckBoxKaraoke.setSelected(false);
+            this.jCheckBoxPaseoRuinas.setSelected(false);
+            this.jCheckBoxSalonUsosMulti.setSelected(false);
+            this.jCheckBoxSpa.setSelected(false);
+
+        }else{
+            AlertaErrorNumeroDeHabitacion habDes = new AlertaErrorNumeroDeHabitacion();
+            habDes.setVisible(true);
+            habDes.setLocationRelativeTo(null);
+            habDes.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        }
+    }//GEN-LAST:event_jButtonBuscarActionPerformed
 
 
     /**
@@ -116,7 +264,17 @@ public class CheckOut extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupTipoHab;
+    private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JCheckBox jCheckBoxGimnasio;
+    private javax.swing.JCheckBox jCheckBoxIglesia;
+    private javax.swing.JCheckBox jCheckBoxKaraoke;
+    private javax.swing.JCheckBox jCheckBoxPaseoRuinas;
+    private javax.swing.JCheckBox jCheckBoxSalonUsosMulti;
+    private javax.swing.JCheckBox jCheckBoxSpa;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextFieldNumeroHab;
     // End of variables declaration//GEN-END:variables
 }

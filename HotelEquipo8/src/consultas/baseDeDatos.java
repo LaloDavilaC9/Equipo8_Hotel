@@ -221,8 +221,8 @@ public class baseDeDatos {
     public void registrarHuesped(String datos[]){
         //datos[4] = "YYYY-mm-DD"
         //datos[5] = "YYYY-mm-DD" ya sumada
-        String parte1 = "Insert into huespedes (Nombre, Ap_Paterno, Ap_Materno, Ciudad, Ingreso, Salida, No_Habitacion, Huespedes, Activo) VALUES (";
-        String parte2 = "'" + datos[1] + "','" + datos[2] + "','" + datos[3] + "','" + datos[4] + "','" + datos[5] + "','" + datos[6] + "','" + datos[7] + "','" + datos[8] + "','" + "1" +"')";
+        String parte1 = "Insert into huespedes (Nombre, Ap_Paterno, Ap_Materno, Ciudad, Ingreso, Salida, No_Habitacion, Huespedes,Activo,diasHospedaje) VALUES (";
+        String parte2 = "'" + datos[1] + "','" + datos[2] + "','" + datos[3] + "','" + datos[4] + "','" + datos[5] + "','" + datos[6] + "','" + datos[7] + "','" + datos[8] + "','" + "1"+ "','" + datos[9] +"')";
         String query = parte1 + parte2;
         System.out.println(query);
         this.conn.Update(query);
@@ -402,6 +402,51 @@ public class baseDeDatos {
             System.out.println("Error en el formato");
         }
         return 0;
+    }
+    public String[] consultaCheckOut(int nHabitacion){
+        String info [] = new String [19];
+        String query = "select * from huespedes where No_Habitacion = " + "'" +nHabitacion+ "'";
+        int j;
+        String tipo = "";
+        try{
+            this.conn.Consult(query);
+            info[0] = this.conn.rs.getString(2); //Nombre
+            info[1] = this.conn.rs.getString(3); //Apellido P.
+            info[2] = this.conn.rs.getString(4); //Apellido M.
+            info[3] = this.conn.rs.getString(5); //Ciudad.
+            info[4] = this.conn.rs.getString(6); //Fecha ingreso.
+            info[5] = this.conn.rs.getString(7); //Fecha salida.
+            info[6] = this.conn.rs.getString(9); //Huespedes en la habitacion.
+            info[7] = this.conn.rs.getString(11); //Dias de hospedaje.
+            int aux2 = nHabitacion;
+            if (aux2 >= 101 && aux2 <= 105 || aux2 >= 201 && aux2 <= 203 || aux2 >= 301 && aux2 <= 306) {//Para el tipo 1
+                tipo = "Sencilla";
+                info[8] = "Osaka (Sencilla)";//Tipo de habitacion.
+            }
+            if (aux2 >= 106 && aux2 <= 111 || aux2 >= 204 && aux2 <= 210 || aux2 >= 307 && aux2 <= 309) {//Para el tipo 2
+                tipo = "Doble";
+                info[8] = "Osaka (Sencilla)";//Tipo de habitacion.
+            }
+            if (aux2 >= 112 && aux2 <= 115 || aux2 >= 211 && aux2 <= 215 || aux2 >= 310 && aux2 <= 315) {//Para el tipo 3
+                tipo = "Triple";
+                info[8] = "Osaka (Sencilla)";//Tipo de habitacion.
+            }
+            query = "select * from tipos_hab where tipo_modelo = " + "'" +tipo+ "'";
+            this.conn.Consult(query);
+            info[9] = this.conn.rs.getString(3); //Costo habitacion.
+            info[10] = this.conn.rs.getString(4); //Costo extra.
+            //Borramos al huesped de la BDD.
+            query = "DELETE FROM huespedes WHERE No_Habitacion = " + "'" +nHabitacion+ "'";
+            this.conn.Update(query);
+            //Habilitamos la habitacion para su uso.
+            query="UPDATE habitaciones SET Disponible = '1', ocupantes = '0' WHERE habitaciones.Hab_id = "+nHabitacion;
+            this.conn.Update(query);
+            return info;
+        }
+        catch(SQLException ex){
+            System.out.println("Error");
+        }
+        return info;
     }
     
 }

@@ -120,6 +120,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuCheckOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/CheckOut.png"))); // NOI18N
         jMenuCheckOut.setText("Check out   ");
         jMenuCheckOut.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jMenuCheckOut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuCheckOutMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenuCheckOut);
 
         jMenuConsultas.setBackground(new java.awt.Color(0, 0, 0));
@@ -568,6 +573,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         consulExtra.setLocationRelativeTo(null);
         consulExtra.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuConsultaExtraMouseClicked
+
+    private void jMenuCheckOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuCheckOutMouseClicked
+        // TODO add your handling code here:
+        CheckOut checkout = new CheckOut();
+        checkout.setVisible(true);
+        checkout.setLocationRelativeTo(null);
+        checkout.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuCheckOutMouseClicked
 
     /**
      * @param args the command line arguments
