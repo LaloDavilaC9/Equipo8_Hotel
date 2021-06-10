@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-06-2021 a las 07:12:31
+-- Tiempo de generación: 10-06-2021 a las 18:39:06
 -- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.6
+-- Versión de PHP: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -62,42 +62,41 @@ CREATE TABLE `habitaciones` (
 --
 
 INSERT INTO `habitaciones` (`Hab_id`, `Tipo_id`, `Piso`, `Disponible`, `ocupantes`) VALUES
-(100, 1, 1, 1, 0),
-(101, 1, 1, 0, 1),
-(102, 1, 1, 0, 2),
-(103, 1, 1, 0, 1),
-(104, 1, 1, 0, 2),
-(105, 1, 1, 0, 2),
+(101, 1, 1, 1, 0),
+(102, 1, 1, 1, 0),
+(103, 1, 1, 1, 0),
+(104, 1, 1, 1, 0),
+(105, 1, 1, 1, 0),
 (106, 2, 1, 1, 0),
 (107, 2, 1, 1, 0),
 (108, 2, 1, 1, 0),
 (109, 2, 1, 1, 0),
-(110, 2, 1, 0, 0),
+(110, 2, 1, 1, 0),
 (111, 2, 1, 1, 0),
-(112, 3, 1, 0, 1),
+(112, 3, 1, 1, 0),
 (113, 3, 1, 1, 0),
-(114, 3, 1, 0, 1),
+(114, 3, 1, 1, 0),
 (115, 3, 1, 1, 0),
-(201, 1, 2, 0, 1),
-(202, 1, 2, 0, 1),
-(203, 1, 2, 0, 2),
+(201, 1, 2, 1, 0),
+(202, 1, 2, 1, 0),
+(203, 1, 2, 1, 0),
 (204, 2, 2, 1, 0),
 (205, 2, 2, 1, 0),
 (206, 2, 2, 1, 0),
 (207, 2, 2, 1, 0),
-(208, 2, 2, 0, 1),
-(209, 2, 2, 0, 0),
-(210, 2, 2, 0, 1),
+(208, 2, 2, 1, 0),
+(209, 2, 2, 1, 0),
+(210, 2, 2, 1, 0),
 (211, 3, 2, 1, 0),
-(212, 3, 2, 0, 4),
+(212, 3, 2, 1, 0),
 (213, 3, 2, 1, 0),
 (214, 3, 2, 1, 0),
-(215, 3, 2, 0, 1),
-(301, 1, 3, 0, 1),
-(302, 1, 3, 0, 1),
-(303, 1, 3, 0, 1),
-(304, 1, 3, 0, 3),
-(305, 1, 3, 0, 2),
+(215, 3, 2, 1, 0),
+(301, 1, 3, 1, 0),
+(302, 1, 3, 1, 0),
+(303, 1, 3, 1, 0),
+(304, 1, 3, 1, 0),
+(305, 1, 3, 1, 0),
 (306, 1, 3, 1, 0),
 (307, 2, 3, 1, 0),
 (308, 2, 3, 1, 0),
@@ -107,7 +106,7 @@ INSERT INTO `habitaciones` (`Hab_id`, `Tipo_id`, `Piso`, `Disponible`, `ocupante
 (312, 3, 3, 1, 0),
 (313, 3, 3, 1, 0),
 (314, 3, 3, 1, 0),
-(315, 3, 3, 0, 0);
+(315, 3, 3, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -129,14 +128,6 @@ CREATE TABLE `huespedes` (
   `diasHospedaje` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `huespedes`
---
-
-INSERT INTO `huespedes` (`Huesped_id`, `Nombre`, `Ap_Paterno`, `Ap_Materno`, `Ciudad`, `Ingreso`, `Salida`, `No_Habitacion`, `Huespedes`, `Activo`, `diasHospedaje`) VALUES
-(1, 'Eduardo', 'Dávila ', 'Campos', 'Aguascalientes', '2021-05-20', '2021-05-28', 100, 0, 1, 0),
-(3, 'Luis', 'Beltrán', 'Arroyo', 'Cd Mex', '2021-06-05', '2021-06-10', 102, 2, 1, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -150,15 +141,16 @@ CREATE TABLE `info_hotel` (
   `ingresos_hotel` float NOT NULL,
   `hab_sencillas` int(10) NOT NULL,
   `hab_dobles` int(10) NOT NULL,
-  `hab_triples` int(10) NOT NULL
+  `hab_triples` int(10) NOT NULL,
+  `imagenes` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `info_hotel`
 --
 
-INSERT INTO `info_hotel` (`nombre_hotel`, `slogan_hotel`, `direccion_hotel`, `ingresos_hotel`, `hab_sencillas`, `hab_dobles`, `hab_triples`) VALUES
-('California Suite', 'La mejor experiencia, sólo en el mejor hotel', 'Avenida Cruza el Río, Fraccionamiento Las Hadas, Nuevo Vallarta, Nayarit. ', 0, 14, 12, 11);
+INSERT INTO `info_hotel` (`nombre_hotel`, `slogan_hotel`, `direccion_hotel`, `ingresos_hotel`, `hab_sencillas`, `hab_dobles`, `hab_triples`, `imagenes`) VALUES
+('California Suite', 'La mejor experiencia, sólo en el mejor hotel', 'Avenida Cruza el Río, Fraccionamiento Las Hadas, Nuevo Vallarta, Nayarit. ', 4652.7, 14, 12, 11, 'src/imagenes/imagenesGaleria/imagenGaleria');
 
 -- --------------------------------------------------------
 
@@ -221,7 +213,7 @@ ALTER TABLE `habitaciones`
 -- AUTO_INCREMENT de la tabla `huespedes`
 --
 ALTER TABLE `huespedes`
-  MODIFY `Huesped_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `Huesped_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos_hab`
