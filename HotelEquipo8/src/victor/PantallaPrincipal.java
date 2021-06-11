@@ -137,6 +137,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jMenuHabitacionesDisponiblesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuHabitacionesDisponiblesMouseClicked
         // TODO add your handling code here:
+        cancion.stop();
         DisponibilidadHabitaciones habDispo = new DisponibilidadHabitaciones();
         habDispo.setVisible(true);
         dispose();

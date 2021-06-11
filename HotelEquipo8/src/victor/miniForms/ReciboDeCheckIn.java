@@ -48,11 +48,20 @@ public class ReciboDeCheckIn extends javax.swing.JFrame {
         this.jLabelTotalOcupantes.setText("Total de ocupantes de la habitación: "+datosHuesped[8]);
         int personasExtras = 0;
         int hospedados = Integer.parseInt(datosHuesped[8]);
-        personasExtras = limite-hospedados;
-        if (personasExtras == 1) {
-            this.jCheckBox1PersonaExt.setSelected(true);
-        }else{
-            this.jCheckBox2PersonaExt.setSelected(true);
+        personasExtras = hospedados - tipoNumero;
+
+        switch (personasExtras) {
+            case 1:
+                this.jCheckBox1PersonaExt.setSelected(true);
+                break;
+            case 2:
+                this.jCheckBox2PersonaExt.setSelected(true);
+                break;
+            default:
+                this.jCheckBox2PersonaExt.setSelected(false);
+                this.jCheckBox1PersonaExt.setSelected(false);
+                break;
+
         }
         this.pintarImagen(this.jLabelFondoRecibo, "src/imagenes/FondoRecibo.jpg");
     }
@@ -89,7 +98,7 @@ public class ReciboDeCheckIn extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelNombreHuesped.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jPanel1.add(jLabelNombreHuesped, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 260, 20));
+        jPanel1.add(jLabelNombreHuesped, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 480, 20));
 
         jLabelCiudadDeOrigen.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jPanel1.add(jLabelCiudadDeOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 270, 20));
@@ -115,12 +124,21 @@ public class ReciboDeCheckIn extends javax.swing.JFrame {
         jLabelTotalOcupantes.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jPanel1.add(jLabelTotalOcupantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 420, 20));
 
+        jCheckBox1PersonaExt.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox1PersonaExt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jCheckBox1PersonaExt.setText("1 persona extra");
+        jCheckBox1PersonaExt.setEnabled(false);
         jPanel1.add(jCheckBox1PersonaExt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
+        jCheckBox2PersonaExt.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox2PersonaExt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jCheckBox2PersonaExt.setText("2 personas extras");
+        jCheckBox2PersonaExt.setEnabled(false);
+        jCheckBox2PersonaExt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2PersonaExtActionPerformed(evt);
+            }
+        });
         jPanel1.add(jCheckBox2PersonaExt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
         jPanel1.add(jLabelFondoRecibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 541, 476));
 
@@ -137,6 +155,10 @@ public class ReciboDeCheckIn extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCheckBox2PersonaExtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2PersonaExtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox2PersonaExtActionPerformed
 
     /**
      * @param args the command line arguments

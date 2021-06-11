@@ -359,6 +359,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuHabDispMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuHabDispMouseClicked
         // TODO add your handling code here:
+        cancion.stop();
         DisponibilidadHabitacionesDesdeMenu habDisp = new DisponibilidadHabitacionesDesdeMenu();
         habDisp.setVisible(true);
         dispose();

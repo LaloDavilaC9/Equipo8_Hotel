@@ -55,6 +55,7 @@ public class CheckIn extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jListNoHab = new javax.swing.JList();
         jButtonRegistrar = new javax.swing.JButton();
+        jButtonMostrarHab = new javax.swing.JButton();
         jLabelNombre = new javax.swing.JLabel();
         jLabelApellidoP = new javax.swing.JLabel();
         jLabelApellidoM = new javax.swing.JLabel();
@@ -102,7 +103,16 @@ public class CheckIn extends javax.swing.JFrame {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, -1));
+        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, -1, -1));
+
+        jButtonMostrarHab.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jButtonMostrarHab.setText("Mostrar habitaciones disponibles");
+        jButtonMostrarHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMostrarHabActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonMostrarHab, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
 
         jLabelNombre.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -303,23 +313,36 @@ public class CheckIn extends javax.swing.JFrame {
             
             if (this.jRadioButtonHabSencilla.isSelected()){
                 tipo = "Sencilla";
-                if (aux3 < 0 || aux3 > 3){
+                if (aux3 < 1 || aux3 > 3) {
                     registroPermitido = false;
                     JOptionPane.showMessageDialog(this, "Número de huéspedes no válido");
+                } else {
+                    if (aux3 > 1) {
+                        JOptionPane.showMessageDialog(this, "Usted a ingresado "+ (aux3-1)+" huespedes extra. \n Se le cobrara un cargo adicional por persona.");
+                    }
                 }
+                
             }
             if (this.jRadioButtonHabDoble.isSelected()){
                 tipo = "Doble";
-                if (aux3 < 0 || aux3 > 4){
+                if (aux3 < 2 || aux3 > 4){
                     registroPermitido = false;
                     JOptionPane.showMessageDialog(this, "Número de huéspedes no válido");
+                }else{
+                    if (aux3 > 2) {
+                        JOptionPane.showMessageDialog(this, "Usted a ingresado "+ (aux3-2)+" huespedes extra. \n Se le cobrara un cargo adicional por persona.");
+                    }
                 }
             }
             if (this.jRadioButtonHabTriple.isSelected()){
                 tipo = "Triple";
-                if (aux3 < 0 || aux3 > 5){
+                if (aux3 < 3 || aux3 > 5){
                     registroPermitido = false;
                     JOptionPane.showMessageDialog(this, "Número de huéspedes no válido");
+                }else{
+                    if (aux3 > 3) {
+                        JOptionPane.showMessageDialog(this, "Usted a ingresado "+ (aux3-3)+" huespedes extra. \n Se le cobrara un cargo adicional por persona.");
+                    }
                 }
             }
             
@@ -335,15 +358,35 @@ public class CheckIn extends javax.swing.JFrame {
                 baseDeDatos b = new baseDeDatos();
                 try{
                     b.registrarHuesped(datos);
-                    JOptionPane.showMessageDialog(this,"Huésped ingresado con éxito");
+                    JOptionPane.showMessageDialog(this, "Huésped ingresado con éxito");
+                    ReciboDeCheckIn recibo = new ReciboDeCheckIn(datos);
+                    recibo.setVisible(true);
+                    recibo.setLocationRelativeTo(null);
+                    recibo.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                    this.jTextFieldApellidoM.setText("");
+                    this.jTextFieldApellidoP.setText("");
+                    this.jTextFieldCiudad.setText("");
+                    this.jTextFieldNombre.setText("");
+                    this.jDateChooserIngreso.setDate(null);
+                    this.jSpinnerDias.setValue(0);
+                    this.jSpinnerHuespedes.setValue(0);
+                    if (this.jRadioButtonHabSencilla.isSelected()) {
+                        this.jRadioButtonHabDoble.setSelected(true);
+                    }else{
+                        if (this.jRadioButtonHabDoble.isSelected()) {
+                            this.jRadioButtonHabTriple.setSelected(true);
+                        }else{
+                            this.jRadioButtonHabSencilla.setSelected(true);
+                        }
+                    }
+                    this.jRadioButtonHabDoble.setSelected(false);
+                    this.jRadioButtonHabSencilla.setSelected(false);
+                    this.jRadioButtonHabTriple.setSelected(false);
                 }catch(Exception ex){
                     JOptionPane.showMessageDialog(this,"Error al ingresar el huésped");
                 }
             }
-            ReciboDeCheckIn recibo = new ReciboDeCheckIn(datos);
-            recibo.setVisible(true);
-            recibo.setLocationRelativeTo(null);
-            recibo.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error en el registro");
             ex.printStackTrace();
@@ -361,6 +404,13 @@ public class CheckIn extends javax.swing.JFrame {
     private void jRadioButtonHabTripleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonHabTripleActionPerformed
         actualizarLista("3");
     }//GEN-LAST:event_jRadioButtonHabTripleActionPerformed
+
+    private void jButtonMostrarHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMostrarHabActionPerformed
+        // TODO add your handling code here:
+        DisponibilidadHabitacionesDesdeCheckIn dispo = new DisponibilidadHabitacionesDesdeCheckIn();
+        dispo.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonMostrarHabActionPerformed
 
     private void actualizarLista(String seleccionHabitacion){
         baseDeDatos consulta = new baseDeDatos();
@@ -415,6 +465,7 @@ public class CheckIn extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupTipoHab;
+    private javax.swing.JButton jButtonMostrarHab;
     private javax.swing.JButton jButtonRegistrar;
     private com.toedter.calendar.JDateChooser jDateChooserIngreso;
     private javax.swing.JLabel jLabel1;

@@ -78,31 +78,37 @@ public class CheckOut extends javax.swing.JFrame {
         jCheckBoxPaseoRuinas.setFont(new java.awt.Font("Segoe UI", 3, 22)); // NOI18N
         jCheckBoxPaseoRuinas.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxPaseoRuinas.setText("Paseo por ruinas");
+        jCheckBoxPaseoRuinas.setOpaque(false);
         jPanel1.add(jCheckBoxPaseoRuinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
         jCheckBoxGimnasio.setFont(new java.awt.Font("Segoe UI", 3, 22)); // NOI18N
         jCheckBoxGimnasio.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxGimnasio.setText("Gimnasio");
+        jCheckBoxGimnasio.setOpaque(false);
         jPanel1.add(jCheckBoxGimnasio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 130, -1));
 
         jCheckBoxSpa.setFont(new java.awt.Font("Segoe UI", 3, 22)); // NOI18N
         jCheckBoxSpa.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxSpa.setText("Spa");
+        jCheckBoxSpa.setOpaque(false);
         jPanel1.add(jCheckBoxSpa, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 120, -1));
 
         jCheckBoxIglesia.setFont(new java.awt.Font("Segoe UI", 3, 22)); // NOI18N
         jCheckBoxIglesia.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxIglesia.setText("Iglesia");
+        jCheckBoxIglesia.setOpaque(false);
         jPanel1.add(jCheckBoxIglesia, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 270, -1));
 
         jCheckBoxSalonUsosMulti.setFont(new java.awt.Font("Segoe UI", 3, 22)); // NOI18N
         jCheckBoxSalonUsosMulti.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxSalonUsosMulti.setText("Salón de usos multiples");
+        jCheckBoxSalonUsosMulti.setOpaque(false);
         jPanel1.add(jCheckBoxSalonUsosMulti, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 270, -1));
 
         jCheckBoxKaraoke.setFont(new java.awt.Font("Segoe UI", 3, 22)); // NOI18N
         jCheckBoxKaraoke.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxKaraoke.setText("Karaoke");
+        jCheckBoxKaraoke.setOpaque(false);
         jPanel1.add(jCheckBoxKaraoke, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 190, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
