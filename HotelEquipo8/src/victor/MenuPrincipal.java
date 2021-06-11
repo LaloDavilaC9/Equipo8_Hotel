@@ -16,6 +16,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -553,10 +554,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuCheckInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuCheckInMouseClicked
         // TODO add your handling code here:
-        CheckIn reg = new CheckIn();
-        reg.setVisible(true);
-        reg.setLocationRelativeTo(null);
-        reg.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        baseDeDatos b = new baseDeDatos();
+        float porcentaje = b.consultarPorcentajeTotalOcupacion();
+        
+        if (porcentaje == 100){
+            JOptionPane.showMessageDialog(this, "Hotel lleno\nNo hay habitaciones disponibles");
+        }else{
+            CheckIn reg = new CheckIn();
+            reg.setVisible(true);
+            reg.setLocationRelativeTo(null);
+            reg.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        }
     }//GEN-LAST:event_jMenuCheckInMouseClicked
 
     private void jMenuEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuEditarMouseClicked

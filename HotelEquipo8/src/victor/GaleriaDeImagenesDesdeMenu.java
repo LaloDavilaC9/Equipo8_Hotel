@@ -74,7 +74,7 @@ public class GaleriaDeImagenesDesdeMenu extends javax.swing.JFrame {
         jLabelMostrarImagenes.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 6, true));
         jLabelMostrarImagenes.setMaximumSize(new java.awt.Dimension(121212, 121212));
         jLabelMostrarImagenes.setPreferredSize(new Dimension(ancho-(ancho/4),alto-(alto/4)));
-        jPanel1.add(jLabelMostrarImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, -1, -1));
+        jPanel1.add(jLabelMostrarImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
 
         jLabelFondoPantallaGaleria.setMaximumSize(new java.awt.Dimension(121212, 121212));
         jLabelFondoPantallaGaleria.setPreferredSize(new Dimension(ancho,alto));

@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -62,7 +63,7 @@ public class Recibo {
             u.setAlignment(0);
             documento.add(u);
             //Nombre de huésped y Ciudad
-            Paragraph n1 = new Paragraph("\nHuésped: " + datos[0] + " " +  datos[1]  + " " + datos[2] +"                                                                        Ciudad: " + datos[3]);
+            Paragraph n1 = new Paragraph("\nHuésped: " + datos[0] + " " +  datos[1]  + " " + datos[2] +"                                          Ciudad: " + datos[3]);
             n1.setAlignment(0);
             documento.add(n1);
             //Fechas
@@ -78,46 +79,68 @@ public class Recibo {
             d.setAlignment(1);
             documento.add(d);
             //Pagos
-            Paragraph p = new Paragraph("\nTotal a pagar sin cargos extra: $" + datos[11] +"              Total a pagar con cargos extra: $" + datos[12]);
+            float p1 = Float.parseFloat(datos[11]);
+            float p2 = Float.parseFloat(datos[12]);
+            Paragraph p = new Paragraph("\nTotal a pagar sin cargos extra: $" + p1 +"    Total a pagar con cargos extra: $" + p2);
             p.setAlignment(1);
             documento.add(p);
             //Servicios
-            Paragraph s1 = new Paragraph("\nLista de cargos extra:");
+            Paragraph s1 = new Paragraph("\nLista de cargos extra:\n");
             s1.setAlignment(1);
             documento.add(s1);
             if(datos[13].equals("1")){
-                Paragraph s2 = new Paragraph("\nGimnasio..............  + $100");
+                Paragraph s2 = new Paragraph("Gimnasio..............  + $100");
                 s2.setAlignment(1);
                 documento.add(s2);
             }
             if(datos[14].equals("1")){
-                Paragraph s3 = new Paragraph("\nIglesia..............  + $3500");
+                Paragraph s3 = new Paragraph("Iglesia..............  + $3500");
                 s3.setAlignment(1);
                 documento.add(s3);
             }
             if(datos[15].equals("1")){
-                Paragraph s4 = new Paragraph("\nKaraoke..............  + $250");
+                Paragraph s4 = new Paragraph("Karaoke..............  + $250");
                 s4.setAlignment(1);
                 documento.add(s4);
             }
             if(datos[16].equals("1")){
-                Paragraph s5 = new Paragraph("\nPaseo por ruinas..............  + $50");
+                Paragraph s5 = new Paragraph("Paseo por ruinas..............  + $50");
                 s5.setAlignment(1);
                 documento.add(s5);
             }
             if(datos[17].equals("1")){
-                Paragraph s6 = new Paragraph("\nSpa..............  + $500");
+                Paragraph s6 = new Paragraph("Spa..............  + $500");
                 s6.setAlignment(1);
                 documento.add(s6);
             }
             if(datos[18].equals("1")){
-                Paragraph s7 = new Paragraph("\nSalón de usos múltiples..............  + $1200");
+                Paragraph s7 = new Paragraph("Salón de usos múltiples..............  + $1200");
                 s7.setAlignment(1);
                 documento.add(s7);
             }
+            //Firma de gerente
+            Image firma = Image.getInstance("src/imagenes/FirmaGerente.jpg");
+            firma.setAlignment(1);
+            firma.scaleAbsolute(90, 40);
+            documento.add(firma);
+            //Nombre gerente
+            Paragraph gerente = new Paragraph("Firma de Gerente");
+            gerente.setAlignment(1);
+            documento.add(gerente);
+            Paragraph nomF = new Paragraph("Paco Ronaldo Gutierritos Saavedra");
+            nomF.setAlignment(1);
+            documento.add(nomF);
+            //Salida
+            Paragraph s = new Paragraph("Salida completada");
+            s.setAlignment(1);
+            documento.add(s);
+            Paragraph s2 = new Paragraph("Esperemos haya disfrutado su estancia,");
+            s2.setAlignment(1);
+            documento.add(s2);
             //Cierra el archivo
             documento.close();
             System.out.println("Recibo generado con éxito");
+            JOptionPane.showMessageDialog(null, "Recibo de salida generado con éxito");
         }catch(Exception ex){
             System.out.println("Error");
             ex.printStackTrace();
