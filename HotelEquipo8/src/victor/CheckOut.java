@@ -9,6 +9,7 @@ import consultas.MySqlConn;
 import consultas.baseDeDatos;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -154,7 +155,13 @@ public class CheckOut extends javax.swing.JFrame {
         String info [] = new String [19];
         baseDeDatos b = new baseDeDatos();
         String resultado;
-        habitacion = Integer.parseInt(this.jTextFieldNumeroHab.getText().trim());
+        try{
+            habitacion = Integer.parseInt(this.jTextFieldNumeroHab.getText().trim());
+        }
+        catch(NumberFormatException ex){
+            habitacion = 0;
+        }
+        
         this.jTextFieldNumeroHab.setText("");
         resultado = b.consultaQuienHabita(habitacion);
         if (resultado != "Habitación no ocupada por nadie") {
