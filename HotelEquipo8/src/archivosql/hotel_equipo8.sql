@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2021 a las 04:31:13
+-- Tiempo de generación: 16-06-2021 a las 20:11:47
 -- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.6
+-- Versión de PHP: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,7 +64,7 @@ CREATE TABLE `habitaciones` (
 INSERT INTO `habitaciones` (`Hab_id`, `Tipo_id`, `Piso`, `Disponible`, `ocupantes`) VALUES
 (101, 1, 1, 0, 3),
 (102, 1, 1, 0, 2),
-(103, 1, 1, 0, 2),
+(103, 1, 1, 1, 0),
 (104, 1, 1, 0, 1),
 (105, 1, 1, 0, 1),
 (106, 2, 1, 1, 0),
@@ -77,31 +77,31 @@ INSERT INTO `habitaciones` (`Hab_id`, `Tipo_id`, `Piso`, `Disponible`, `ocupante
 (113, 3, 1, 1, 0),
 (114, 3, 1, 1, 0),
 (115, 3, 1, 1, 0),
-(201, 1, 2, 0, 1),
+(201, 1, 2, 1, 0),
 (202, 1, 2, 0, 1),
-(203, 1, 2, 0, 2),
+(203, 1, 2, 0, 1),
 (204, 2, 2, 1, 0),
 (205, 2, 2, 1, 0),
 (206, 2, 2, 1, 0),
 (207, 2, 2, 1, 0),
 (208, 2, 2, 1, 0),
-(209, 2, 2, 1, 0),
+(209, 2, 2, 0, 3),
 (210, 2, 2, 0, 2),
-(211, 3, 2, 0, 2),
+(211, 3, 2, 1, 0),
 (212, 3, 2, 1, 0),
 (213, 3, 2, 1, 0),
 (214, 3, 2, 1, 0),
 (215, 3, 2, 1, 0),
-(301, 1, 3, 1, 0),
-(302, 1, 3, 0, 1),
-(303, 1, 3, 1, 0),
-(304, 1, 3, 1, 0),
-(305, 1, 3, 0, 1),
+(301, 1, 3, 0, 1),
+(302, 1, 3, 1, 0),
+(303, 1, 3, 0, 1),
+(304, 1, 3, 0, 3),
+(305, 1, 3, 1, 0),
 (306, 1, 3, 1, 0),
 (307, 2, 3, 1, 0),
 (308, 2, 3, 1, 0),
 (309, 2, 3, 1, 0),
-(310, 3, 3, 0, 3),
+(310, 3, 3, 1, 0),
 (311, 3, 3, 1, 0),
 (312, 3, 3, 1, 0),
 (313, 3, 3, 1, 0),
@@ -133,19 +133,17 @@ CREATE TABLE `huespedes` (
 --
 
 INSERT INTO `huespedes` (`Huesped_id`, `Nombre`, `Ap_Paterno`, `Ap_Materno`, `Ciudad`, `Ingreso`, `Salida`, `No_Habitacion`, `Huespedes`, `Activo`, `diasHospedaje`) VALUES
-(28, 'Victor Emilio', 'Delgado', 'Luna', 'Aguascalientes', '2021-01-19', '2021-01-22', 305, 1, 1, 3),
 (29, 'Brayan', 'Gaytan', 'Sanchez', 'Aguascalientes', '2021-02-09', '2021-02-14', 105, 1, 1, 5),
-(30, 'Luis', 'Beltran', 'Arroyo', 'CDMX', '2021-01-11', '2021-01-12', 302, 1, 1, 1),
-(31, 'Roberto', 'Mendez', 'Correa', 'CDMX', '2021-04-01', '2021-04-11', 201, 1, 1, 10),
 (32, 'Eduardo', 'Davila', 'Campos', 'Aguascalientes', '2021-05-04', '2021-05-08', 104, 1, 1, 4),
-(33, 'Julio de Jesus', 'Gonzales', 'Rangel', 'Jalisco', '2021-04-24', '2021-04-28', 103, 2, 1, 4),
 (34, 'Jose Emiliano', 'Sanchez', 'Arias', 'Aguascalientes', '2021-01-22', '2021-01-24', 210, 2, 1, 2),
-(35, 'Paco', 'Gonzales', 'Arispe', 'Aguascalientes', '2021-02-15', '2021-02-27', 211, 2, 1, 12),
-(36, 'Alan Pedro', 'Pedrada', 'Pedrazo', 'Aguascalientes', '2021-02-01', '2021-02-08', 101, 3, 1, 7),
+(36, 'Alan Javier', 'Gonzalez', 'Perez', 'Aguascalientes', '2021-02-01', '2021-02-08', 101, 3, 1, 7),
 (37, 'David', 'Gutierres', 'Gutierritos', 'Zacatecas', '2021-03-04', '2021-03-06', 102, 2, 1, 2),
-(38, 'Luisancio', 'Martinez', 'Oropeza', 'Monterrey', '2021-03-04', '2021-03-11', 310, 3, 1, 7),
 (39, 'Ricardo', 'Rodriguez', 'Almeria', 'Medellin', '2021-06-01', '2021-06-04', 202, 1, 1, 3),
-(40, 'Alberto', 'Gutierres', 'Davila', 'Aguascalientes', '2021-06-01', '2021-06-05', 203, 2, 1, 4);
+(41, 'David', 'Perez', 'Garcia', 'Nuevo Leon', '2021-06-16', '2021-06-18', 203, 1, 1, 2),
+(42, 'Javeri', 'Garcia', 'Perez', 'Aguascalientes', '2021-06-16', '2021-06-18', 301, 1, 1, 2),
+(43, 'Javeri', 'Perez', 'Gonzalez', 'Ags', '2021-06-17', '2021-06-19', 304, 3, 1, 2),
+(44, 'Andrea', 'Martinez', 'Rosale', 'Guadalajara', '2021-06-17', '2021-06-19', 303, 1, 1, 2),
+(45, 'Luis', 'Delgado', 'Luna', 'Ags', '2021-06-19', '2021-06-21', 209, 3, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -169,7 +167,7 @@ CREATE TABLE `info_hotel` (
 --
 
 INSERT INTO `info_hotel` (`nombre_hotel`, `slogan_hotel`, `direccion_hotel`, `ingresos_hotel`, `hab_sencillas`, `hab_dobles`, `hab_triples`, `imagenes`) VALUES
-('California Suite', 'La mejor experiencia, sólo en el mejor hotel', 'Avenida Cruza el Río, Fraccionamiento Las Hadas, Nuevo Vallarta, Nayarit. ', 4652.7, 14, 12, 11, 'src/imagenes/imagenesGaleria/imagenGaleria');
+('California Suite', 'La mejor experiencia, sólo en el mejor hotel', 'Avenida Cruza el Río, Fraccionamiento Las Hadas, Nuevo Vallarta, Nayarit. ', 88789.4, 14, 12, 11, 'src/imagenes/imagenesGaleria/imagenGaleria');
 
 -- --------------------------------------------------------
 
@@ -232,7 +230,7 @@ ALTER TABLE `habitaciones`
 -- AUTO_INCREMENT de la tabla `huespedes`
 --
 ALTER TABLE `huespedes`
-  MODIFY `Huesped_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `Huesped_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos_hab`
